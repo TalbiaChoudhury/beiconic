@@ -1,95 +1,55 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import Hero from "../components/Hero/Hero";
+import SideBySide from "../components/SideBySide/SideBySide";
+import FadeIn from "../components/FadeIn/FadeIn";
+import FadeInHero from "../components/FadeIn/FadeInHero";
+import logo from "../../public/assets/images/logo.png";
+import mike from "../../public/assets/images/mike.jpeg";
+import Pricing from "@/components/Pricing/Pricing";
+import gym1 from "../../public/assets/images/gym1.jpg";
+import gym2 from "../../public/assets/images/gym2.jpg";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const handleDemoClick = () => {
+    alert("Button clicked!");
+  };
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  return (
+    <>
+      <FadeInHero>
+          <Hero />
+      </FadeInHero>
+
+      <FadeIn>
+        <SideBySide
+          imagePosition="right"
+          header="Finally, a Plan That Actually Listens"
+          text="Your AI coach isn't just a list of exercises. It's a dynamic conversation. Tell it how you're feeling, what equipment you have, or if you're short on time. It will adapt your plan on the spot, just like a real personal trainer would."
+          buttonLabel="Learn More"
+          onButtonClick={handleDemoClick}
+          imageSrc={gym1}
+          imageAlt="Placeholder image"
+        />
+      </FadeIn>
+
+      <FadeIn>
+        <SideBySide
+          imagePosition="left"
+          header="Find the Perfect Coach for Your Style"
+          bulletPoints={[
+            "Testing bullet point number 1",
+            "Testing an incredibly long bullet point that should wrap to the next line if it exceeds the width of the container",
+          ]}
+          listType="number"
+          imageSrc={gym2}
+          imageAlt="Placeholder image"
+        />
+      </FadeIn>
+
+      <FadeIn>
+        <Pricing />
+      </FadeIn>
+    </>
   );
 }

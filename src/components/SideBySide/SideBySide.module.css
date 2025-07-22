@@ -1,0 +1,105 @@
+/* Main container for the side-by-side component */
+.container {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  gap: 64px; /* Space between image and text */
+  width: 100%;
+  max-width: 1200px; /* Max width for larger screens */
+  margin: 80px auto; /* Center the component on the page with vertical margin */
+  padding: 20px;
+}
+
+/* Container for the text content */
+.textContainer {
+  flex: 1; /* Take up available space */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the start */
+  max-width: 500px;
+}
+
+/* Styling for the header */
+.header {
+  font-size: 2.5rem; /* Large header text */
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--primary); /* Use primary color from page.module.css */
+}
+
+/* Styling for the paragraph text */
+.text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Styling for the new bullet point list */
+.bulletList {
+  /* Changed 'inside' to 'outside' to align wrapped text */
+  list-style-position: outside; 
+  /* Added padding to give the bullet points space */
+  padding-left: 20px; 
+  margin-bottom: 24px; /* Space between list and button */
+  text-align: left; /* Ensure list text aligns left */
+}
+
+/* Styling for individual list items */
+.bulletItem {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 8px; /* Space between each bullet point */
+}
+
+/* Styling for the optional button */
+.button {
+  appearance: none;
+  background: var(--primary);
+  color: var(--foreground);
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Container for the image */
+.imageContainer {
+  flex: 1; /* Take up available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  border-radius: 16px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center;
+  }
+  
+  .textContainer {
+    align-items: center; /* Center text content on small screens */
+  }
+
+  .bulletList {
+    text-align: left; /* Keep list items left-aligned even when container is centered */
+    display: inline-block; /* Helps with alignment in a centered container */
+    margin-top: 0;
+  }
+}

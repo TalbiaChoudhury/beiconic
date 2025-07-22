@@ -1,0 +1,164 @@
+/* General Footer Styling */
+.footer {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 50px 0 20px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Footer Top Section */
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; /* <-- Changed from flex-start to baseline */
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Contact Info & Logo */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primary);
+  display: inline-block;
+}
+
+.contactInfo a {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contactInfo a:hover {
+  color: var(--primary);
+}
+
+/* Quick Links Section */
+.quickLinks h3, .subscribe h3 {
+  color: var(--primary);
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 60px;
+}
+
+.linksGrid a {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.linksGrid a:hover {
+  color: var(--primary);
+}
+
+/* Subscribe Section */
+.subscribeForm {
+  display: flex;
+  height: 44px;
+}
+
+.subscribeForm input {
+  border: 1px solid var(--background);
+  padding: 0 15px;
+  font-size: 14px;
+  background-color: var(--foreground);
+  color: var(--background);
+  border-radius: 4px 0 0 4px;
+  width: 200px;
+}
+
+.subscribeForm input:focus {
+  outline: none;
+}
+
+.subscribeForm button {
+  border: none;
+  background-color: var(--primary);
+  color: var(--foreground);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: 0 4px 4px 0;
+  transition: filter 0.3s;
+}
+
+.subscribeForm button:hover {
+  background-color: var(--foreground);
+  color: var(--primary);
+}
+
+/* Footer Bottom Section */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+  font-size: 12px;
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcons a {
+  color: var(--foreground);
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.socialIcons a:hover {
+  color: var(--primary);
+}
+
+.productOf {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.smallLogo {
+  font-weight: bold;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 2px 4px;
+  font-size: 10px;
+}
