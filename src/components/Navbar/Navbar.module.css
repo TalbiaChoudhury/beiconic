@@ -241,7 +241,7 @@
     top: 0;
     flex-direction: column;
     /* Apply the glass effect to the mobile menu as well */
-    background-color: rgba(20, 20, 20, 0.85); 
+    background-color: rgba(20, 20, 20, 0.95); /* Changed opacity from 0.85 to 0.95 for a darker effect */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     width: 100%;
