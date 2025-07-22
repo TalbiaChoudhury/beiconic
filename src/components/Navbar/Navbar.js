@@ -1,17 +1,16 @@
 // Navbar.js
 
-"use client"; // This makes it a client component
+"use client";
 
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import { useState } from 'react'; // Import useState
-import logoWithText from '../../../public/assets/images/logo with text.png'; // Import the logo image
+import { useState } from 'react';
+import logoWithText from '../../../public/assets/images/logo with text.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Function to close the menu, useful for mobile view
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -39,22 +38,25 @@ const Navbar = () => {
           </ul>
         </div>
         
-        {/* Part 3: Contact button for desktop */}
+        {/* Part 3: Contact button for desktop (will be hidden on mobile) */}
         <div className={`${styles.navSection} ${styles.navRight}`}>
             <Link href="/" className={styles.button}>Sign Up</Link>
         </div>
 
-        {/* Hamburger for mobile */}
-        <div 
-          className={styles.hamburger} 
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
+        {/* --- NEW: Wrapper for Mobile Controls --- */}
+        <div className={styles.mobileControls}>
+          <Link href="/" className={styles.button}>Sign Up</Link>
+          <div 
+            className={styles.hamburger} 
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+          </div>
         </div>
 
-        {/* This list now serves as the mobile menu overlay */}
+        {/* This list now serves as the mobile menu overlay (Sign Up button removed) */}
         <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
           <li>
             <Link href="/" onClick={closeMenu}>Home</Link>
@@ -68,10 +70,7 @@ const Navbar = () => {
           <li>
             <Link href="/" onClick={closeMenu}>Pricing</Link>
           </li>
-          <li>
-            {/* The button is a regular list item in the mobile menu */}
-            <Link href="/" className={styles.button} onClick={closeMenu}>Sign Up</Link>
-          </li>
+          {/* The Sign Up button is no longer here */}
         </ul>
       </div>
     </nav>

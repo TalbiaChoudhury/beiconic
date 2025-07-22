@@ -1,5 +1,10 @@
 /* Navbar.module.css - Layout Styles */
 
+/* Hide the mobile controls on desktop by default */
+.mobileControls {
+  display: none;
+}
+
 /* Keep your existing styles for the navbar glow effect */
 @keyframes pulse-brightness {
   0% { opacity: 0.3; }
@@ -218,7 +223,7 @@
 @media (max-width: 768px) {
   /* Hide the desktop layout sections */
   .navCenter,
-  .navRight,
+  .navRight, /* This rule already hides the desktop button */
   .desktopLinks {
     display: none;
   }
@@ -226,6 +231,13 @@
   /* Make the logo section not take up 1/3 of the space */
   .navSection {
       flex: 0 1 auto;
+  }
+
+  /* Show the mobile controls wrapper and align items */
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Creates space between the button and the hamburger */
   }
 
   /* Show the hamburger */
