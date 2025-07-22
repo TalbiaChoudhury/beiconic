@@ -1,16 +1,10 @@
-/* Navbar.module.css */
+/* Navbar.module.css - Layout Styles */
 
-/* Add these keyframes for the pulsing animation */
+/* Keep your existing styles for the navbar glow effect */
 @keyframes pulse-brightness {
-  0% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.4;
-  }
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
 }
 
 .navbar {
@@ -18,26 +12,45 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--background);
+  /* --- Glass Effect Styles --- */
+  /* Changed background to a semi-transparent color. Adjust the color and opacity (the last value) to your liking. */
+  background-color: rgba(20, 20, 20, 0.6); 
+  /* This property creates the blur effect on elements behind the navbar. */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* For Safari browser support */
+  /* --- End of Glass Effect Styles --- */
   padding: 1rem 2rem;
   z-index: 1000;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient( to right, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100% );
 }
 
 .navbar::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right,
-    var(--background),
-    var(--foreground) 50%,
-    var(--background)
-  );
-  /* Apply the animation to the line */
+  right: 0;
+  bottom: -5px;
+  margin: auto;
+  width: 60%;
+  height: 20px;
+  background: radial-gradient( ellipse at 50% 75%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70% );
+  filter: blur(10px);
   animation: pulse-brightness 5s ease-in-out infinite;
+  pointer-events: none;
 }
+/* --- End of glow effect styles --- */
+
 
 .container {
   max-width: 1200px;
@@ -45,20 +58,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-.logo {
-  display: flex; /* Make the logo a flex container */
-  align-items: center; /* Vertically center the items inside */
-  font-family: var(--font-geist-sans);
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary);
-  z-index: 1001; /* Ensure logo is above mobile menu */
-  text-decoration: none; /* Add this to remove underline from the Link */
+/* New layout styles for desktop */
+.navSection {
+  flex: 1;
 }
 
-.navLinks {
+.navCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.navRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.desktopLinks {
   font-family: var(--font-geist-sans);
   list-style: none;
   display: flex;
@@ -66,18 +85,34 @@
   gap: 2rem;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease-in-out;
 }
 
-.navLinks a {
+.desktopLinks a {
   color: var(--foreground);
   text-decoration: none;
   font-size: 0.75rem;
   transition: color 0.2s ease-in-out;
 }
 
-.navLinks a:hover {
+.desktopLinks a:hover {
   color: var(--primary);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-geist-sans);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* This is the original navLinks class, now repurposed for the mobile menu */
+.navLinks {
+  /* This class is now ONLY for the mobile pop-out menu. */
+  /* It is hidden by default on desktop. */
+  display: none;
 }
 
 .hamburger {
@@ -85,6 +120,7 @@
   cursor: pointer;
   flex-direction: column;
   gap: 4px;
+  z-index: 1001;
 }
 
 .bar {
@@ -95,62 +131,130 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navLinks {
-    position: fixed;
-    left: -100%; /* Start off-screen */
-    top: 0;
-    flex-direction: column;
-    background-color: var(--background);
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
+/* 1. Add this @property rule at the top of your CSS file */
+@property --gradient-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
 
-  .navLinks.active {
-    left: 0; /* Slide in */
+/* 2. Add this @keyframes rule to define the rotation animation */
+@keyframes rotate-border {
+  0% {
+    --gradient-angle: 0deg;
   }
-
-  .navLinks a {
-    font-size: 0.75rem;
-  }
-
-  .hamburger {
-    display: flex;
-    z-index: 1001; /* Ensure hamburger is above mobile menu */
+  100% {
+    --gradient-angle: 360deg;
   }
 }
 
-.navLinks .button {
+/* 3. Replace your existing .button::before with this updated version */
+.button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    transparent 50%,
+    var(--primary),
+    transparent
+  );
+  animation: rotate-border 4s linear infinite;
+
+  /* The mask now includes the standard 'mask' property */
+  -webkit-mask: /* For Safari/Chrome */
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask: /* The standard property for compatibility */
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Generic button style (decoupled from .navLinks) */
+
+.button {
+  /* ... (no changes here) */
   appearance: none;
-  border-radius: 128px;
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
   height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  padding: 0 24px;
+  border: none;
+  transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
   line-height: 20px;
-  font-weight: 500;
-  background: var(--primary);
+  font-weight: 600;
+  background-color: transparent;
   color: var(--foreground);
   gap: 8px;
+  text-decoration: none;
 }
 
-/* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  .navLinks .button:hover {
-    background: var(--foreground);
-    color: var(--background);
-    border-color: transparent;
+  .button:hover {
+    /* ... (no changes here) */
+    background-color: var(--primary);
+    color: var(--foreground);
+  }
+  
+  .button:hover::before {
+    /* ... (no changes here) */
+    display: none;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Hide the desktop layout sections */
+  .navCenter,
+  .navRight,
+  .desktopLinks {
+    display: none;
+  }
+
+  /* Make the logo section not take up 1/3 of the space */
+  .navSection {
+      flex: 0 1 auto;
+  }
+
+  /* Show the hamburger */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Show the mobile menu when active */
+  .navLinks.active {
+    display: flex; /* This overrides display: none */
+    position: fixed;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    /* Apply the glass effect to the mobile menu as well */
+    background-color: rgba(20, 20, 20, 0.85); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .navLinks.active a {
+    font-size: 1rem;
   }
 }
