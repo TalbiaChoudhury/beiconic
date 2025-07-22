@@ -7,7 +7,7 @@ export default function Hero() {
   // Define all your animation lines in one simple array
   const animationLines = [
     "Access elite AI fitness trainers, 24/7 in your pocket",
-    "Get personalied guidance and motivation"
+    "Get personalised guidance and motivation"
     // Add as many new lines as you want here!
   ];
 
