@@ -1,165 +1,158 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+/* Hero Component Styles
+  - Mobile-first approach
+  - Fluid typography and spacing
+*/
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* Horizontal padding for all screen sizes */
+  box-sizing: border-box;
+}
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+.herocontainer {
+  display: flex;
+  flex-direction: column; /* Stacked on mobile by default */
   align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-
-  position: relative;
-  isolation: isolate; /* Ensures the pseudo-element stays behind the content */
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh; /* Ensures it takes at least the full screen height */
+  gap: 48px;
+  width: 100%;
+  max-width: 1200px; /* Max width for large screens */
+  padding: 80px 0; /* Vertical padding */
+  box-sizing: border-box;
+  height: 100vh;
 }
 
-/* Add this new pseudo-element selector */
-.page::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1; /* Places the background behind the content */
-  
-  /* Set the background image */
-  background-image: url('../../../public/assets/images/background.jpg');
-  background-size: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Set the opacity */
-  opacity: 0.15;
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.heroleft {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center; /* Center content in the column */
+  max-width: 500px;
 }
 
-.header {
+/* Fluid Typography: Scales font size with viewport width */
+.heroheadline {
+  /* clamp(MIN, PREFERRED, MAX) */
+  font-size: clamp(1.75rem, 1vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+}
+
+.herodescription {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  max-width: 500px;
+}
+
+.highlight1 {
   color: var(--primary);
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.highlight2 {
+  color: var(--primary);
+  font-weight: 900;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+/* Form Styling */
+.heroform {
   display: flex;
+  flex-direction: column; /* Stacked on mobile */
   gap: 16px;
+  width: 100%;
+  max-width: 550px;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+.heroinput {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 12px; /* Reduced padding to make it shorter */
+  font-size: 1rem;
+  background-color: var(--foreground);
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.heroinput:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+.herobutton {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 24px; /* Reduced vertical padding */
+  font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.herobutton:hover {
+  transform: translateY(-2px);
+}
+
+/* Image Styling */
+.heroright {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  width: 100%;
+  max-width: 800px;
 }
 
-a.primary {
-  background: var(--primary);
-  color: var(--foreground);
-  gap: 8px;
+/* Container for the image */
+.imagecontainer {
+  flex: 1; /* Take up available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.image {
+  border-radius: 16px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--foreground);
-    color: var(--background);
-    border-color: transparent;
-  }
+/* --- Media Queries for Responsiveness --- */
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  .heroform {
+    flex-direction: row; /* Side-by-side form on larger screens */
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .herocontainer {
+    gap: 64px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .herocontainer {
+    flex-direction: row; /* Two-column layout on desktop */
+    text-align: left;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 20px;
+  }
+
+  .heroleft {
+    align-items: flex-start; /* Align text to the left */
   }
 }

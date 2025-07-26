@@ -18,9 +18,7 @@
   left: 0;
   width: 100%;
   /* --- Glass Effect Styles --- */
-  /* Changed background to a semi-transparent color. Adjust the color and opacity (the last value) to your liking. */
   background-color: rgba(20, 20, 20, 0.6); 
-  /* This property creates the blur effect on elements behind the navbar. */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px); /* For Safari browser support */
   /* --- End of Glass Effect Styles --- */
@@ -61,7 +59,7 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Use space-between to push items apart */
   align-items: center;
   position: relative;
   z-index: 1;
@@ -69,17 +67,16 @@
 
 /* New layout styles for desktop */
 .navSection {
-  flex: 1;
+  flex: 1; /* Give each section equal space */
+  display: flex;
 }
 
 .navCenter {
-  display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the content (the ul) within this section */
 }
 
 .navRight {
-  display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Align the content (the button) to the right of this section */
 }
 
 .desktopLinks {
@@ -115,8 +112,6 @@
 
 /* This is the original navLinks class, now repurposed for the mobile menu */
 .navLinks {
-  /* This class is now ONLY for the mobile pop-out menu. */
-  /* It is hidden by default on desktop. */
   display: none;
 }
 
@@ -136,14 +131,12 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* 1. Add this @property rule at the top of your CSS file */
 @property --gradient-angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
 
-/* 2. Add this @keyframes rule to define the rotation animation */
 @keyframes rotate-border {
   0% {
     --gradient-angle: 0deg;
@@ -153,7 +146,6 @@
   }
 }
 
-/* 3. Replace your existing .button::before with this updated version */
 .button::before {
   content: '';
   position: absolute;
@@ -168,23 +160,17 @@
     transparent
   );
   animation: rotate-border 4s linear infinite;
-
-  /* The mask now includes the standard 'mask' property */
-  -webkit-mask: /* For Safari/Chrome */
+  -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  mask: /* The standard property for compatibility */
+  mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-    
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 
-/* Generic button style (decoupled from .navLinks) */
-
 .button {
-  /* ... (no changes here) */
   appearance: none;
   position: relative;
   z-index: 1;
@@ -208,22 +194,25 @@
 
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
-    /* ... (no changes here) */
     background-color: var(--primary);
     color: var(--foreground);
   }
   
   .button:hover::before {
-    /* ... (no changes here) */
     display: none;
   }
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .container {
+    justify-content: space-between; /* Restore space-between for mobile */
+    gap: 0; /* Remove gap for mobile */
+  }
+
   /* Hide the desktop layout sections */
   .navCenter,
-  .navRight, /* This rule already hides the desktop button */
+  .navRight,
   .desktopLinks {
     display: none;
   }
@@ -237,7 +226,7 @@
   .mobileControls {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Creates space between the button and the hamburger */
+    gap: 1rem;
   }
 
   /* Show the hamburger */
@@ -247,13 +236,12 @@
   
   /* Show the mobile menu when active */
   .navLinks.active {
-    display: flex; /* This overrides display: none */
+    display: flex;
     position: fixed;
     left: 0;
     top: 0;
     flex-direction: column;
-    /* Apply the glass effect to the mobile menu as well */
-    background-color: rgba(20, 20, 20, 0.95); /* Changed opacity from 0.85 to 0.95 for a darker effect */
+    background-color: rgba(20, 20, 20, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     width: 100%;
