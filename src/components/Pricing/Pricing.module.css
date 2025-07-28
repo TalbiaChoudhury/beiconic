@@ -1,152 +1,234 @@
-/* Pricing Section Styling */
-.pricingSection {
-  padding: 80px 20px;
-  background-color: var(--background);
-  font-family: var(--font-geist-sans);
-}
+/* Pricing.module.css */
 
+/* Main container for the pricing section */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: var(--foreground);
+  position: relative;
+  transition: all 0.5s ease-in-out;
 }
 
-.headerContainer {
-  margin-bottom: 64px;
-}
-
+/* Header section with title and subtitle */
 .header {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 16px;
-}
-
-.subHeader {
-  font-size: 1.1rem;
-  color: var(--foreground);
-  opacity: 0.8;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* Grid for pricing cards */
-.pricingGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  align-items: stretch; /* Make cards the same height */
-}
-
-/* Individual pricing card styling */
-.pricingCard {
-  background: var(--gray-alpha-100);
-  border: 1px solid var(--gray-alpha-200);
-  border-radius: 16px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pricingCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.cardHeader {
-  margin-bottom: 32px;
-}
-
-.cardHeader h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 16px;
-}
-
-.price {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--foreground);
-}
-
-.price span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--foreground);
-  opacity: 0.7;
-  margin-left: 8px;
-}
-
-/* Feature list */
-.featureList {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 40px;
   text-align: left;
-  flex-grow: 1; /* Pushes the button to the bottom */
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.featureList li {
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.title {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.featureList li::before {
-  content: '✔';
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+.highlight {
   color: var(--primary);
-  font-size: 1.2rem;
 }
 
-/* Button styles */
-.button {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 24px;
-  border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+/* Grid for the top 3 pricing cards */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Base styles for the interactive pricing cards */
+.card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  z-index: 1;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  width: 100%;
 }
 
-.primary {
-  background: var(--primary);
-  color: var(--foreground);
+/* On hover, the card scales up and gets a shadow */
+.card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 60px 18px rgba(234, 83, 43, 0.5);
 }
 
-.secondary {
+.cardContent {
+  padding: 2.5rem 2rem;
+  text-align: left;
+  position: relative;
+  z-index: 2;
   background: transparent;
-  border-color: var(--gray-alpha-200);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.7));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.4s ease-in-out;
+}
+
+/* Set the initial border for the 2nd and 3rd cards to a primary color gradient */
+.card:nth-child(2)::before,
+.card:nth-child(3)::before {
+    /* The primary color #ea532b is rgb(234, 83, 43) */
+    background: linear-gradient(to bottom right, rgba(234, 83, 43, 0.3), rgba(234, 83, 43, 0.7));
+}
+
+/* On hover, the border becomes the solid primary color */
+.card:hover::before {
+    background: var(--primary);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.cardTagline {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
   color: var(--foreground);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .primary:hover {
-    background: var(--foreground);
-    color: var(--background);
-  }
-
-  .secondary:hover {
-    background: var(--foreground);
-    color: var(--background);
-  }
+.cardDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--foreground);
 }
 
-/* Special styling for the Gold tier */
-.gold {
-  border-color: var(--primary);
+/* --- MODIFIED: Styling for the large premium card with radial gradient animation --- */
+.premiumCard {
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 60px 20px rgba(234, 83, 43, 0.5);
+
+  /* Set the base background color and the radial gradient */
+  background-color: #cccccc; /* Fallback/edge color */
+  background-image: radial-gradient(circle at left, var(--primary) 70%, #cccccc 95%);
+  background-size: 100% 220%; /* Start with a visible gradient, vertically elliptical to appear circular */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Animate transform, box-shadow, and now background-size for the burst effect */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background-size 2s ease-in-out;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .pricingGrid {
+/* On hover, the premium card scales up, gets a shadow, and the background bursts from the center */
+.premiumCard:hover {
+    transform: scale(1.04);
+    background-size: 250% 500%; /* Expand the gradient to fill the card with the primary color */
+    /* Increased blur, spread, and opacity for a more intense glow */
+    box-shadow: 0 0 120px 35px rgba(234, 83, 43, 0.8);
+}
+
+/* Fading border for the premium card */
+.premiumCard::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px; /* Border thickness */
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); /* MODIFIED: White gradient border */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.premiumTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  transition: color 0.4s ease-in-out;
+}
+
+.premiumTagline {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  transition: color 0.4s ease-in-out;
+}
+
+.premiumDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  transition: color 0.4s ease-in-out;
+  max-width: 500px;
+}
+
+.premiumCard:hover .premiumTitle,
+.premiumCard:hover .premiumTagline,
+.premiumCard:hover .premiumDescription {
+    color: var(--foreground);
+}
+
+/* Styling for the footer note */
+.footerNote {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  max-width: 900px;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.footerNoteHighlights {
+  font-weight: 700;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .cardsGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+  .header {
+    text-align: center;
+  }
+  .cardContent, .premiumCard {
+    padding: 2rem 1.5rem;
   }
 }

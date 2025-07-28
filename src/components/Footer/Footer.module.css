@@ -1,164 +1,116 @@
-/* General Footer Styling */
-.footer {
-  background-color: var(--background);
-  color: var(--foreground);
-  padding: 50px 0 20px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  opacity: 0.9;
-}
+/* Footer.module.css */
 
-.container {
+/* Main container for the footer section */
+.footerContainer {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Footer Top Section */
-.footerTop {
+  margin: 4rem auto;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline; /* <-- Changed from flex-start to baseline */
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Contact Info & Logo */
-.contactInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  font-size: 36px;
-  font-weight: bold;
-  color: var(--primary);
-  display: inline-block;
-}
-
-.contactInfo a {
-  color: var(--foreground);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.contactInfo a:hover {
-  color: var(--primary);
-}
-
-/* Quick Links Section */
-.quickLinks h3, .subscribe h3 {
-  color: var(--primary);
-  font-size: 16px;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.linksGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px 60px;
-}
-
-.linksGrid a {
-  color: var(--foreground);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.linksGrid a:hover {
-  color: var(--primary);
-}
-
-/* Subscribe Section */
-.subscribeForm {
-  display: flex;
-  height: 44px;
-}
-
-.subscribeForm input {
-  border: 1px solid var(--background);
-  padding: 0 15px;
-  font-size: 14px;
-  background-color: var(--foreground);
-  color: var(--background);
-  border-radius: 4px 0 0 4px;
-  width: 200px;
-}
-
-.subscribeForm input:focus {
-  outline: none;
-}
-
-.subscribeForm button {
-  border: none;
-  background-color: var(--primary);
-  color: var(--foreground);
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  padding: 0 15px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 20px;
-  border-radius: 0 4px 4px 0;
-  transition: filter 0.3s;
+  padding-left: 2rem; /* Added more vertical padding for spacing */
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  background-color: var(--background); /* Assumes you have a global --background variable */
+  color: var(--foreground);
+  box-sizing: border-box;
 }
 
-.subscribeForm button:hover {
+/* Wrapper to constrain the content width */
+.contentWrapper {
+  width: 100%;
+  max-width: 1200px; /* Consistent with other sections */
+  text-align: left;
+}
+
+/* Styling for the main title */
+.title {
+  font-size: clamp(1.25rem, 4vw, 1.5rem); /* Responsive font size */
+  font-weight: 900;
+  color: var(--primary); /* Uses the primary color from your theme */
+  margin-bottom: 1rem;
+}
+
+/* Styling for the first line of text */
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* Styling for the second line of text */
+.tagline {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem; /* Increased space before the form */
+}
+
+/* Form container styling, adapted from Hero.module.css for consistency */
+.form {
+  display: flex;
+  flex-direction: column; /* Stacks form elements on mobile */
+  gap: 1rem;
+  width: 100%;
+  max-width: 550px;
+}
+
+/* Email input field styling - matched with Hero component */
+.input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  background-color: var(--foreground);
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, outline 0.2s ease;
+}
+
+.input::placeholder {
+  color: #555;
+}
+
+.input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+/* Sign up button styling - matched with Hero component */
+.button {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.button:hover {
+  transform: translateY(-2px);
   background-color: var(--foreground);
   color: var(--primary);
 }
 
-/* Footer Bottom Section */
-.footerBottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 20px;
-  font-size: 12px;
-  color: var(--foreground);
-  opacity: 0.7;
+/* --- Responsive Design --- */
+
+/* For tablets and larger screens, align form elements in a row */
+@media (min-width: 576px) {
+  .form {
+    flex-direction: row;
+  }
 }
 
-.socialIcons {
-  display: flex;
-  gap: 15px;
-}
-
-.socialIcons a {
-  color: var(--foreground);
-  font-size: 16px;
-  transition: color 0.3s;
-}
-
-.socialIcons a:hover {
-  color: var(--primary);
-}
-
-.productOf {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.smallLogo {
-  font-weight: bold;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 2px 4px;
-  font-size: 10px;
+/* For small mobile screens, center the text and form */
+@media (max-width: 600px) {
+  .contentWrapper {
+    text-align: center;
+  }
+  .form {
+    align-items: center;
+  }
 }

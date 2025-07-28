@@ -5,6 +5,7 @@ import FadeIn from "../components/FadeIn/FadeIn";
 import FadeInHero from "../components/FadeIn/FadeInHero";
 import CarouselSlides from '../components/CarouselSlides/CarouselSlides';
 import ThreeCards from '../components/ThreeCards/ThreeCards';
+import Pricing from '../components/Pricing/Pricing';
 
 export default function Home() {
   const handleDemoClick = () => {
@@ -23,6 +24,10 @@ export default function Home() {
 
       <FadeIn>
         <ThreeCards />
+      </FadeIn>
+
+      <FadeIn>
+        <Pricing />
       </FadeIn>
     </>
   );

@@ -1,0 +1,152 @@
+/* Pricing Section Styling */
+.pricingSection {
+  padding: 80px 20px;
+  background-color: var(--background);
+  font-family: var(--font-geist-sans);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.headerContainer {
+  margin-bottom: 64px;
+}
+
+.header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.subHeader {
+  font-size: 1.1rem;
+  color: var(--foreground);
+  opacity: 0.8;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Grid for pricing cards */
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: stretch; /* Make cards the same height */
+}
+
+/* Individual pricing card styling */
+.pricingCard {
+  background: var(--gray-alpha-100);
+  border: 1px solid var(--gray-alpha-200);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pricingCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.cardHeader {
+  margin-bottom: 32px;
+}
+
+.cardHeader h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+/* Feature list */
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+  text-align: left;
+  flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.featureList li {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featureList li::before {
+  content: '✔';
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+/* Button styles */
+.button {
+  appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.primary {
+  background: var(--primary);
+  color: var(--foreground);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--gray-alpha-200);
+  color: var(--foreground);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+
+  .secondary:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+}
+
+/* Special styling for the Gold tier */
+.gold {
+  border-color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+}

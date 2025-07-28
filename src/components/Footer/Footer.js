@@ -1,61 +1,43 @@
+"use client"; // Add this directive to mark it as a Client Component
+
 import React from 'react';
-import styles from './Footer.module.css'; // Import CSS module
-import { FaTwitter, FaInstagram } from 'react-icons/fa'; // Import social icons
-import { FiArrowRight } from 'react-icons/fi'; // Import arrow icon
-import Image from 'next/image'; // Import Next.js Image component
-import Link from 'next/link'; // Import Next.js Link component                    
-import logo from '../../../public/assets/images/logo.png'; // Import logo image 
+import styles from './Footer.module.css';
 
+/**
+ * A responsive footer component that prompts users to sign up for a waitlist.
+ * It includes a title, descriptive text, and an email submission form.
+ */
 const Footer = () => {
+  // A simple handler for form submission to prevent page reload.
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // You can add your form submission logic here, e.g., sending the email to a server.
+    console.log('Form submitted!');
+  };
+
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        {/* Top section of the footer */}
-        <div className={styles.footerTop}>
-          <div className={styles.contactInfo}>
-            {/* START: Added a wrapper div here */}
-            <div className={styles.logoContainer}>
-              <Image src={logo} alt="Logo" width={50} height={50} />
-              <div className={styles.logo}>Icon</div>
-            </div>
-            {/* END: Added a wrapper div here */}
-            <a href="tel:">Number</a>
-            <a href="mailto:">Email</a>
-          </div>
-
-          <div className={styles.quickLinks}>
-            <h3>Quick Links</h3>
-            <div className={styles.linksGrid}>
-              <Link href="/">Home</Link>
-              <Link href="/">About us</Link>
-              <Link href="/">Contact us</Link>
-            </div>
-          </div>
-
-          <div className={styles.subscribe}>
-            <h3>Subscribe</h3>
-            <form className={styles.subscribeForm}>
-              <input type="email" placeholder="Get product updates" />
-              <button type="submit">
-                <FiArrowRight />
-              </button>
-            </form>
-          </div>
-        </div>
-
-        {/* Bottom section of the footer */}
-        <div className={styles.footerBottom}>
-          <div className={styles.socialIcons}>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-          </div>
-          <div className={styles.productOf}>
-            A product of <span className={styles.smallLogo}>Icon</span>
-          </div>
-          <div className={styles.copyright}>
-            © 2025 Icon. All rights reserved
-          </div>
-        </div>
+    <footer className={styles.footerContainer}>
+      <div className={styles.contentWrapper}>
+        <h2 className={styles.title}>Be The First To Experience Icon</h2>
+        <p className={styles.subtitle}>
+          Join our waitlist to get early access and exclusive updates.
+        </p>
+        <p className={styles.tagline}>
+          Your fitness revolution is just one step away.
+        </p>
+        
+        {/* Email signup form */}
+        <form className={styles.form} onSubmit={handleFormSubmit}>
+          <input
+            type="email"
+            placeholder="Enter email address..."
+            className={styles.input}
+            required
+          />
+          <button type="submit" className={styles.button}>
+            Sign Up
+          </button>
+        </form>
       </div>
     </footer>
   );
