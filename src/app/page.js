@@ -4,6 +4,7 @@ import Hero from "../components/Hero/Hero";
 import FadeIn from "../components/FadeIn/FadeIn";
 import FadeInHero from "../components/FadeIn/FadeInHero";
 import CarouselSlides from '../components/CarouselSlides/CarouselSlides';
+import ThreeCards from '../components/ThreeCards/ThreeCards';
 
 export default function Home() {
   const handleDemoClick = () => {
@@ -18,6 +19,10 @@ export default function Home() {
 
       <FadeIn>
         <CarouselSlides />
+      </FadeIn>
+
+      <FadeIn>
+        <ThreeCards />
       </FadeIn>
     </>
   );

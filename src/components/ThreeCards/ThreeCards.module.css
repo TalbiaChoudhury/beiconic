@@ -1,0 +1,165 @@
+/* ThreeCards.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: var(--foreground);
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  max-width: 700px; /* Constrain the width of the header text */
+}
+
+.title {
+  font-size: clamp(1.25rem, 4vw, 1.5rem); /* Responsive font size */
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile-first: single column */
+  gap: 2rem;
+}
+
+.card {
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.175); /* Base border */
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  /* Background color is now handled by the ::before pseudo-element */
+}
+
+/* Position the card's direct children (h3, p) above the pseudo-elements */
+.card > * {
+  position: relative;
+}
+
+/* ::before is the solid background fill, placed behind the content */
+.card::before {
+  content: "";
+  position: absolute;
+  /* FIX: Make the background 1px smaller to reveal the border behind it */
+  inset: 1px;
+  background-color: #000000;
+  /* FIX: Adjust radius for a perfect inner fit */
+  border-radius: 11px;
+  z-index: -1;
+}
+
+/* ::after is the glowing border, placed behind the background fill */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2; /* Behind the ::before background */
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    350px circle at var(--mouse-x) var(--mouse-y),
+    var(--primary),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap; /* Ensures the title stays on a single line */
+}
+
+.cardTagline {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cardDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Responsive Design for Desktop --- */
+@media (min-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns on tablets and up */
+  }
+}
+
+/* --- Hide specific static borders by making them transparent --- */
+.card1 {
+  border-right-color: transparent;
+}
+
+.card2 {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.card3 {
+  border-left-color: transparent;
+}
+
+/* --- Override the mask on the ::after pseudo-element to hide the glow --- */
+
+.card1::after {
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(to left, transparent 1px, #fff 1px);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(to left, transparent 1px, #fff 1px);
+}
+
+.card2::after {
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(to right, transparent 1px, #fff 1px, #fff calc(100% - 1px), transparent calc(100% - 1px));
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(to right, transparent 1px, #fff 1px, #fff calc(100% - 1px), transparent calc(100% - 1px));
+}
+
+.card3::after {
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(to right, transparent 1px, #fff 1px);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(to right, transparent 1px, #fff 1px);
+}
