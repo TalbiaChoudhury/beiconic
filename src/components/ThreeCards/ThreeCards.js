@@ -56,7 +56,7 @@ const ThreeCards = () => {
             onMouseMove={handleMouseMove}
           >
             <h3 className={styles.cardTitle}>
-              {card.title[0]}<span className={styles.highlight}>{card.title[1]}</span>
+              {card.title[0]}<span className={styles.highlight1}>{card.title[1]}</span>
             </h3>
             <p className={styles.cardTagline}>{card.tagline}</p>
             <p className={styles.cardDescription}>{card.description}</p>
