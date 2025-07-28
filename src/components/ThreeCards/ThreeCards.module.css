@@ -40,7 +40,7 @@
 .card {
   text-align: left;
   border: 1px solid rgba(255, 255, 255, 0.175); /* Base border */
-  border-radius: 12px;
+  border-radius: 20px;
   padding: 2rem;
   position: relative;
   /* Background color is now handled by the ::before pseudo-element */
@@ -59,7 +59,7 @@
   inset: 1px;
   background-color: #000000;
   /* FIX: Adjust radius for a perfect inner fit */
-  border-radius: 11px;
+  border-radius: 20px;
   z-index: -1;
 }
 
