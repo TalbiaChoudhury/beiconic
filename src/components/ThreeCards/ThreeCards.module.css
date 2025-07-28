@@ -27,8 +27,13 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.highlight {
+.highlight1 {
   color: var(--primary);
+}
+
+.highlight2 {
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .cardsGrid {
