@@ -82,7 +82,7 @@
 .textBox {
   position: relative;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 20px;
   cursor: pointer;
   background-color: transparent; /* This is the inner background */
   z-index: 1;

@@ -70,7 +70,7 @@
 .heroinput {
   flex-grow: 1;
   border: 1px solid #ccc;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 12px; /* Reduced padding to make it shorter */
   font-size: 1rem;
   background-color: var(--foreground);
