@@ -4,8 +4,7 @@ import Hero from "../components/Hero/Hero";
 import SideBySide from "../components/SideBySide/SideBySide";
 import FadeIn from "../components/FadeIn/FadeIn";
 import FadeInHero from "../components/FadeIn/FadeInHero";
-import logo from "../../public/assets/images/logo.png";
-import mike from "../../public/assets/images/mike.jpeg";
+import CarouselSlides from '../components/CarouselSlides/CarouselSlides';
 import Pricing from "@/components/Pricing/Pricing";
 import gym1 from "../../public/assets/images/gym1.jpg";
 import gym2 from "../../public/assets/images/gym2.jpg";
@@ -45,6 +44,10 @@ export default function Home() {
           imageSrc={gym2}
           imageAlt="Placeholder image"
         />
+      </FadeIn>
+
+      <FadeIn>
+        <CarouselSlides />
       </FadeIn>
 
       <FadeIn>

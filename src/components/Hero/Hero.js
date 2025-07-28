@@ -9,7 +9,7 @@ export default function Hero() {
       <div className={styles.herocontainer}>
         <div className={styles.heroleft}>
           <h1 className={styles.heroheadline}>
-            YOU DON&apos;T NEED MORE WILLPOWER. YOU NEED AN <span className={styles.highlight1}>ICON.</span>
+            YOU DON&apos;T NEED MORE WILLPOWER. <br></br> YOU NEED AN <span className={styles.highlight1}>ICON.</span>
           </h1>
           <p className={styles.herodescription}>
             Eat better. Recover Faster. <span className={styles.highlight2}>Train Smarter.</span> Your Icon tracks it all - powered by real coaches, available anytime
@@ -28,11 +28,12 @@ export default function Hero() {
         <div className={styles.heroright}>
           <div className={styles.imagecontainer}>
             <Image
-              src={hero} 
+              src={hero}
               alt="App placeholder"
               className={styles.image}
-              width={700}
+              width={600}
               height={400}
+              onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/700x400/2d3748/ffffff?text=App+Image'; }}
             />
           </div>
         </div>
