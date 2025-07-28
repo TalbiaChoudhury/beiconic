@@ -6,6 +6,8 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 4rem auto;
+  padding-left: 20px;
+  padding-right: 20px;
   color: var(--foreground);
   /* background-color and border removed */
 }
