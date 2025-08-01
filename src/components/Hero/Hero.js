@@ -31,8 +31,8 @@ export default function Hero() {
               src={hero}
               alt="App placeholder"
               className={styles.image}
-              width={600}
-              height={400}
+              width={450}
+              height={100}
               onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/700x400/2d3748/ffffff?text=App+Image'; }}
             />
           </div>
