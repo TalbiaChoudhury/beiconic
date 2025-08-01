@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 550px;
+  max-width: 5500px;
   gap: 1rem;
 }
 
@@ -102,12 +102,22 @@
 
 .rightColumn {
   flex: 1;
+  /* Add this to ensure the column doesn't have a minimum width that prevents shrinking */
+  min-width: 0;
 }
 
 .imageWrapper {
   position: relative;
-  max-width: 600px;
-  margin: 0 auto;
+  /* Make the wrapper responsive */
+  width: 100%;
+  max-width: 600px; /* You can keep your max-width */
+  margin: 0 auto; /* Center the image wrapper */
+}
+
+/* Add this new class */
+.phoneImage {
+  width: 100%;
+  height: auto; /* This is crucial for maintaining aspect ratio */
 }
 
 /* --- Responsive Design --- */
