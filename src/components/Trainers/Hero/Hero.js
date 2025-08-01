@@ -1,43 +1,44 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
-import hero from '../../../../public/assets/images/Home/Hero/Hero.png';
+import hero from '../../../../public/assets/images/Home/Hero/Hero.png'
 
-export default function Hero() {
+const Hero = () => {
   return (
-    <div className={styles.hero}>
-      <div className={styles.herocontainer}>
-        <div className={styles.heroleft}>
-          <h1 className={styles.heroheadline}>
-            YOU DON&apos;T NEED MORE WILLPOWER. <br></br> YOU NEED AN <span className={styles.highlight1}>ICON.</span>
-          </h1>
-          <p className={styles.herodescription}>
-            Eat better. Recover Faster. <span className={styles.highlight2}>Train Smarter.</span> Your Icon tracks it all - powered by real coaches, available anytime
-          </p>
-          <form className={styles.heroform} onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="Enter email address..."
-              className={styles.heroinput}
-            />
-            <button type="submit" className={styles.herobutton}>
-              Sign Up
-            </button>
-          </form>
-        </div>
-        <div className={styles.heroright}>
-          <div className={styles.imagecontainer}>
+    <div className={styles.heroContainer}>
+      <div className={styles.leftColumn}>
+        <h1 className={styles.headline}>
+          YOU DON’T NEED MORE WILLPOWER. <br></br>YOU NEED AN <span className={styles.highlight}>ICON.</span>
+        </h1>
+        <p className={styles.subheadline}>
+          Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span> Your Icon tracks it all - powered by real coaches, available anytime
+        </p>
+        <form className={styles.signupForm}>
+          <input
+            type="email"
+            placeholder="Enter email address..."
+            className={styles.emailInput}
+          />
+          <button type="submit" className={styles.signupButton}>
+            Sign Up
+          </button>
+        </form>
+      </div>
+      <div className={styles.rightColumn}>
+        <div className={styles.imageWrapper}>
+          <div className={`${styles.phoneImageContainer} ${styles.phoneImage1}`}>
             <Image
               src={hero}
-              alt="App placeholder"
-              className={styles.image}
-              width={450}
-              height={100}
-              onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/700x400/2d3748/ffffff?text=App+Image'; }}
+              alt="App screenshot on a phone"
+              width={400}
+              height={560}
+              className={styles.phoneImage}
             />
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
-}
+};
+
+export default Hero;

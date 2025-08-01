@@ -1,61 +1,56 @@
-/* Hero Component Styles
-  - Mobile-first approach
-  - Fluid typography and spacing
-*/
+/* Hero.module.css */
 
-.hero {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-.herocontainer {
-  display: flex;
-  flex-direction: column; /* Stacked on mobile by default */
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh; /* Ensures it takes at least the full screen height */
-  gap: 48px;
-  width: 100%;
-  max-width: 1200px; /* Max width for large screens */
-  box-sizing: border-box;
-  height: 100vh;
-}
-
-.heroleft {
+.heroContainer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content in the column */
-  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  /* Add this line to push content below the navbar */
+  padding-top: 100px; 
+  color: var(--foreground);
+  gap: 3rem;
+  text-align: center;
+  min-height: 100vh; /* This will center the content vertically */
 }
 
-/* Fluid Typography: Scales font size with viewport width */
-.heroheadline {
-  /* clamp(MIN, PREFERRED, MAX) */
-  font-size: clamp(1.75rem, 1vw, 3rem);
+.leftColumn {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.headline {
+  font-size: clamp(1rem, 2vw, 3rem);
   font-weight: 900;
   line-height: 1.2;
-  margin: 0 0 24px 0;
 }
 
-.herodescription {
+.highlight {
+  color: var(--primary);
+}
+
+.subheadline {
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.6;
-  margin: 0 0 32px 0;
-  max-width: 500px;
+  max-width: 480px;
 }
 
-.highlight1 {
-  color: var(--primary);
+.bold {
+    font-weight: 700;
+    color:  var(--primary);
 }
 
-.highlight2 {
-  color: var(--primary);
-  font-weight: 900;
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 550px;
+  gap: 1rem;
 }
 
 /* Form Styling */
@@ -67,7 +62,7 @@
   max-width: 550px;
 }
 
-.heroinput {
+.emailInput {
   flex-grow: 1;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -79,13 +74,13 @@
   box-sizing: border-box;
 }
 
-.heroinput:focus {
+.emailInput:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-color: var(--primary);
 }
 
-.herobutton {
+.signupButton {
   border: none;
   border-radius: 15px;
   background-color: var(--primary);
@@ -98,63 +93,39 @@
   white-space: nowrap; /* Prevent text wrapping */
 }
 
-.herobutton:hover {
+.signupButton:hover {
   transform: translateY(-2px);
   background-color: var(--foreground);
   color: var(--primary);
 }
 
-/* Image Styling */
-.heroright {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+
+.rightColumn {
+  flex: 1;
+}
+
+.imageWrapper {
+  position: relative;
   max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Container for the image */
-.imagecontainer {
-  flex: 1; /* Take up available space */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image {
-  border-radius: 16px;
-  object-fit: cover;
-  max-width: 100%;
-  height: auto;
-}
-
-/* --- Media Queries for Responsiveness --- */
-
-/* Small devices (phones, 576px and up) */
-@media (min-width: 576px) {
-  .heroform {
-    flex-direction: row; /* Side-by-side form on larger screens */
-  }
-}
-
-/* Medium devices (tablets, 768px and up) */
+/* --- Responsive Design --- */
 @media (min-width: 768px) {
-  .herocontainer {
-    gap: 64px;
+  .signupForm {
+    flex-direction: row;
   }
 }
 
-/* Large devices (desktops, 992px and up) */
+
 @media (min-width: 992px) {
-  .herocontainer {
-    flex-direction: row; /* Two-column layout on desktop */
+  .heroContainer {
+    flex-direction: row;
     text-align: left;
-    justify-content: space-between;
-    gap: 48px;
-    padding: 20px;
+    gap: 4rem;
   }
 
-  .heroleft {
-    align-items: flex-start; /* Align text to the left */
+  .leftColumn {
+    align-items: flex-start;
   }
 }
