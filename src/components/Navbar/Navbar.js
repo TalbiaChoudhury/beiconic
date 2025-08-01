@@ -6,7 +6,7 @@ import Link from 'next/link';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
-import logoWithText from '../../../public/assets/images/logo with text.png';
+import logoWithText from '../../../public/assets/images/LogoText.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className={`${styles.navSection} ${styles.navCenter}`}>
           <ul className={styles.desktopLinks}>
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/">Trainers</Link></li>
+            <li><Link href="/trainers">Trainers</Link></li>
             <li><Link href="/">Vision</Link></li>
             <li><Link href="/">About</Link></li>
           </ul>

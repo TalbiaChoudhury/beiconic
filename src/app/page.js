@@ -1,11 +1,11 @@
 "use client";
 
-import Hero from "../components/Hero/Hero";
-import FadeIn from "../components/FadeIn/FadeIn";
-import FadeInHero from "../components/FadeIn/FadeInHero";
-import CarouselSlides from '../components/CarouselSlides/CarouselSlides';
-import ThreeCards from '../components/ThreeCards/ThreeCards';
-import Pricing from '../components/Pricing/Pricing';
+import Hero from "../components/Home/Hero/Hero";
+import FadeIn from "../components/Animations/FadeIn/FadeIn";
+import FadeInHero from "../components/Animations/FadeIn/FadeInHero";
+import CarouselSlides from '../components/Home/CarouselSlides/CarouselSlides'
+import ThreeCards from '../components/Home/ThreeCards/ThreeCards';
+import Pricing from '../components/Home/Pricing/Pricing';
 
 export default function Home() {
   const handleDemoClick = () => {

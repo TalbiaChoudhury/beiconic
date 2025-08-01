@@ -1,0 +1,160 @@
+/* Hero Component Styles
+  - Mobile-first approach
+  - Fluid typography and spacing
+*/
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.herocontainer {
+  display: flex;
+  flex-direction: column; /* Stacked on mobile by default */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh; /* Ensures it takes at least the full screen height */
+  gap: 48px;
+  width: 100%;
+  max-width: 1200px; /* Max width for large screens */
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.heroleft {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content in the column */
+  max-width: 600px;
+}
+
+/* Fluid Typography: Scales font size with viewport width */
+.heroheadline {
+  /* clamp(MIN, PREFERRED, MAX) */
+  font-size: clamp(1.75rem, 1vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+}
+
+.herodescription {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  max-width: 500px;
+}
+
+.highlight1 {
+  color: var(--primary);
+}
+
+.highlight2 {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+/* Form Styling */
+.heroform {
+  display: flex;
+  flex-direction: column; /* Stacked on mobile */
+  gap: 16px;
+  width: 100%;
+  max-width: 550px;
+}
+
+.heroinput {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 12px; /* Reduced padding to make it shorter */
+  font-size: 1rem;
+  background-color: var(--foreground);
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.heroinput:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+.herobutton {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 24px; /* Reduced vertical padding */
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.herobutton:hover {
+  transform: translateY(-2px);
+  background-color: var(--foreground);
+  color: var(--primary);
+}
+
+/* Image Styling */
+.heroright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Container for the image */
+.imagecontainer {
+  flex: 1; /* Take up available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  border-radius: 16px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  .heroform {
+    flex-direction: row; /* Side-by-side form on larger screens */
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .herocontainer {
+    gap: 64px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .herocontainer {
+    flex-direction: row; /* Two-column layout on desktop */
+    text-align: left;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 20px;
+  }
+
+  .heroleft {
+    align-items: flex-start; /* Align text to the left */
+  }
+}
