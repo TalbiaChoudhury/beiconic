@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import styles from './Hero.module.css';
-import hero from '../../../../public/assets/images/Home/Hero/Hero.png';
+"use client";
 
-const Hero = () => {
+import React, { useState } from 'react';
+import styles from './Footer.module.css';
+
+
+const Footer = () => {
   // State for the email input
   const [email, setEmail] = useState('');
   // State to handle loading status
@@ -48,45 +49,35 @@ const Hero = () => {
   };
 
   return (
-    <div className={styles.heroContainer}>
-      <div className={styles.leftColumn}>
-        <h1 className={styles.headline}>
-          YOU DON’T NEED MORE WILLPOWER. <br />YOU NEED AN <span className={styles.highlight}>ICON.</span>
-        </h1>
-        <p className={styles.subheadline}>
-          Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span> Your Icon tracks it all - powered by real coaches, available anytime
+    <footer className={styles.footerContainer}>
+      <div className={styles.contentWrapper}>
+        <h2 className={styles.title}>Be The First To Experience Icon</h2>
+        <p className={styles.subtitle}>
+          Join our waitlist to get early access and exclusive updates.
         </p>
-        <form className={styles.signupForm} onSubmit={handleSubmit}>
+        <p className={styles.tagline}>
+          Your fitness revolution is just one step away.
+        </p>
+        
+        {/* Email signup form */}
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Enter email address..."
-            className={styles.emailInput}
+            className={styles.input}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required // Make email input required
           />
-          <button type="submit" className={styles.signupButton} disabled={loading}>
+          <button type="submit" className={styles.button} disabled={loading}>
             {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
         </form>
-        {/* Display success or error messages */}
-        {message && <p className={styles.message}>{message}</p>}
+
+        {message && <p className={styles.message}><br></br>{message}</p>}
       </div>
-      <div className={styles.rightColumn}>
-        <div className={styles.imageWrapper}>
-          <div className={`${styles.phoneImageContainer} ${styles.phoneImage1}`}>
-            <Image
-              src={hero}
-              alt="App screenshot on a phone"
-              width={400}
-              height={560}
-              className={styles.phoneImage}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    </footer>
   );
 };
 
-export default Hero;
+export default Footer;

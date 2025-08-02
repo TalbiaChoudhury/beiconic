@@ -31,10 +31,9 @@ const Navbar = () => {
         {/* Part 2: Centered links for desktop */}
         <div className={`${styles.navSection} ${styles.navCenter}`}>
           <ul className={styles.desktopLinks}>
-            <li><Link href="/">Home</Link></li>
+            <li><Link href="/">Users</Link></li>
             <li><Link href="/trainers">Trainers</Link></li>
             <li><Link href="/">Vision</Link></li>
-            <li><Link href="/">About</Link></li>
           </ul>
         </div>
         
@@ -59,18 +58,14 @@ const Navbar = () => {
         {/* This list now serves as the mobile menu overlay (Sign Up button removed) */}
         <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
           <li>
-            <Link href="/" onClick={closeMenu}>Home</Link>
+            <Link href="/" onClick={closeMenu}>Users</Link>
           </li>
           <li>
-            <Link href="/" onClick={closeMenu}>About</Link>
+            <Link href="/" onClick={closeMenu}>Trainers</Link>
           </li>
           <li>
-            <Link href="/" onClick={closeMenu}>Features</Link>
+            <Link href="/" onClick={closeMenu}>Vision</Link>
           </li>
-          <li>
-            <Link href="/" onClick={closeMenu}>Pricing</Link>
-          </li>
-          {/* The Sign Up button is no longer here */}
         </ul>
       </div>
     </nav>

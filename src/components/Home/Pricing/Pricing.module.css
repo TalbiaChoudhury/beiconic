@@ -74,7 +74,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.7));
+    background: linear-gradient(to bottom right, rgba(92, 92, 92, 0.3), rgba(92, 92, 92, 0.7));
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
@@ -89,7 +89,10 @@
 }
 
 /* Set the initial border for the 2nd and 3rd cards to a primary color gradient */
-.card:nth-child(2)::before,
+.card:nth-child(2)::before {
+  /* The primary color #ea532b is rgb(234, 83, 43) */
+    background: linear-gradient(to bottom right, rgba(145, 52, 27, 0.3), rgba(145, 52, 27, 0.7));
+}
 .card:nth-child(3)::before {
     /* The primary color #ea532b is rgb(234, 83, 43) */
     background: linear-gradient(to bottom right, rgba(234, 83, 43, 0.3), rgba(234, 83, 43, 0.7));
