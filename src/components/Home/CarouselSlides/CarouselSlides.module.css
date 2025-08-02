@@ -23,7 +23,7 @@
 .imageWrapper {
     flex-grow: 1; /* Allow the wrapper to grow and fill the space */
     position: relative;
-    min-height: 300px; /* Minimum height for mobile */
+    min-height: 80vh; /* Minimum height for mobile */
     border-radius: 12px;
     overflow: hidden;
 }
