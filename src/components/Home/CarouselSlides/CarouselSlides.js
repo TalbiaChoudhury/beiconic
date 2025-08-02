@@ -147,7 +147,7 @@ const CarouselSlides = () => {
                     src={item.image}
                     alt={item.title}
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="contain" // ✨ FIX: Changed from "cover" to "contain"
                     className={styles.image}
                     onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x800/000000/ffffff?text=Image+Not+Found'; }}
                     />
