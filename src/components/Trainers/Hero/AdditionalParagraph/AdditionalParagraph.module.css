@@ -1,0 +1,16 @@
+.subheadline {
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  color: var(--foreground);
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+}
+
+.bold {
+    font-weight: 700;
+    color:  var(--primary);
+}

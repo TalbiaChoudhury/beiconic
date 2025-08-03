@@ -51,10 +51,15 @@ const Hero = () => {
     <div className={styles.heroContainer}>
       <div className={styles.leftColumn}>
         <h1 className={styles.headline}>
-          YOU DON’T NEED MORE WILLPOWER. <br />YOU NEED AN <span className={styles.highlight}>ICON.</span>
+          Coach <span className={styles.highlight}>More.</span>
+          <br />Earn <span className={styles.highlight}>More.</span>
+          <br /> Stress <span className={styles.highlight}>Less.</span>
         </h1>
         <p className={styles.subheadline}>
-          Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span> Your Icon tracks it all - powered by real coaches, available anytime
+          Icon is building a new kind of fitness platform - with digital trainers, designed by <span className={styles.bold}>real athletes</span> like you. Launch your own Icon, and reach people everywhere, all at once.
+        </p>
+        <p className={styles.subheadline}>
+          <span className={styles.bold}>Apply to join our roster of Founding Icons now!</span>
         </p>
         <form className={styles.signupForm} onSubmit={handleSubmit}>
           <input
