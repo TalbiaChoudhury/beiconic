@@ -1,0 +1,198 @@
+/* ModularCards.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  color: var(--foreground);
+}
+
+.mainHeader {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.subHeader {
+  font-size: clamp(1.2rem, 4vw, 1.75rem);
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+}
+
+.introText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: VAR(--foreground);
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardContainer {
+  display: flex;
+  flex-grow: 1;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 1rem calc(50% - 150px - 0.75rem);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.cardContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 300px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  scroll-snap-align: center;
+}
+
+.inactiveCard {
+  transform: scale(0.85);
+  opacity: 0.6;
+}
+
+.activeCard {
+  transform: scale(1);
+  opacity: 1;
+  border-color: var(--primary);
+}
+
+.cardImagePlaceholder {
+  position: relative; /* Add this line */
+  height: 180px;
+  background: linear-gradient(45deg, #2c2c2c, #3a3a3a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--background);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardHeader {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.4;
+  margin-bottom: 0.5rem; /* Space for text below */
+  
+  /* --- Alignment styles added --- */
+  min-height: 80px; /* Forces all headers to be the same height. Adjust value as needed. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardText {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #a0a0a0;
+}
+
+.arrowButton {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrowButton:hover {
+  background-color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+.chevron {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+}
+
+.leftArrow .chevron {
+  transform: translateX(2px) rotate(135deg);
+}
+
+.rightArrow .chevron {
+  transform: translateX(-2px) rotate(-45deg);
+}
+
+
+.indicatorWrapper {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.indicatorDot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #555;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.indicatorDot:hover {
+  background-color: #777;
+}
+
+.activeIndicator {
+  background-color: transparent;
+  border-color: var(--primary);
+}
+
+.footerText {
+  margin-top: 3rem;
+}
+
+.highlight {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .arrowButton {
+    display: none;
+  }
+
+  .cardContainer {
+    padding: 1rem calc(50% - 40vw - 0.75rem);
+  }
+}

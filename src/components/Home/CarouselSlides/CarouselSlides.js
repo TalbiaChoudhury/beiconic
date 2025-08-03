@@ -147,7 +147,7 @@ const CarouselSlides = () => {
                     src={item.image}
                     alt={item.title}
                     layout="fill"
-                    objectFit="contain" // ✨ FIX: Changed from "cover" to "contain"
+                    objectFit="contain"
                     className={styles.image}
                     onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x800/000000/ffffff?text=Image+Not+Found'; }}
                     />
@@ -169,19 +169,39 @@ const CarouselSlides = () => {
 
 
       {/* Right Side: Text Content */}
-      <div className={styles.textWrapper}>
-        {carouselData.map((item, index) => (
-          <div
-            key={item.id}
-            className={`${styles.textBox} ${
-              activeIndex === index ? styles.activeText : ''
-            }`}
-            onClick={() => handleIndicatorClick(index)}
-          >
-            <h3 className={styles.textTitle}>{item.title}</h3>
-            <p className={styles.textDescription}>{item.description}</p>
-          </div>
-        ))}
+      <div className={styles.textColumn}>
+        <button
+            className={`${styles.arrowButton} ${styles.upArrow}`}
+            onClick={goToPrev}
+            aria-label="Previous slide"
+        >
+            <i className={styles.chevron}></i>
+        </button>
+
+        <div className={styles.textWrapper}>
+            <div className={styles.textSlider} style={{ transform: `translateY(-${activeIndex * 100}%)` }}>
+                {carouselData.map((item, index) => (
+                    <div
+                        key={item.id}
+                        className={`${styles.textBox} ${
+                        activeIndex === index ? styles.activeText : ''
+                        }`}
+                        onClick={() => handleIndicatorClick(index)}
+                    >
+                        <h3 className={styles.textTitle}>{item.title}</h3>
+                        <p className={styles.textDescription}>{item.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <button
+            className={`${styles.arrowButton} ${styles.downArrow}`}
+            onClick={goToNext}
+            aria-label="Next slide"
+        >
+            <i className={styles.chevron}></i>
+        </button>
       </div>
     </div>
   );

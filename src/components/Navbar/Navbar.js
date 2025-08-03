@@ -33,7 +33,7 @@ const Navbar = () => {
           <ul className={styles.desktopLinks}>
             <li><Link href="/">Users</Link></li>
             <li><Link href="/trainers">Trainers</Link></li>
-            <li><Link href="/">Vision</Link></li>
+            <li><Link href="/vision">Vision</Link></li>
           </ul>
         </div>
         
@@ -61,10 +61,10 @@ const Navbar = () => {
             <Link href="/" onClick={closeMenu}>Users</Link>
           </li>
           <li>
-            <Link href="/" onClick={closeMenu}>Trainers</Link>
+            <Link href="/trainers" onClick={closeMenu}>Trainers</Link>
           </li>
           <li>
-            <Link href="/" onClick={closeMenu}>Vision</Link>
+            <Link href="/vision" onClick={closeMenu}>Vision</Link>
           </li>
         </ul>
       </div>
