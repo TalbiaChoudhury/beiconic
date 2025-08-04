@@ -87,7 +87,6 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .cardHeader {
@@ -100,7 +99,6 @@
   /* --- Alignment styles added --- */
   min-height: 80px; /* Forces all headers to be the same height. Adjust value as needed. */
   display: flex;
-  justify-content: center;
 }
 
 .cardText {
