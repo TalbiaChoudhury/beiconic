@@ -94,7 +94,7 @@
   font-weight: 700;
   color: var(--foreground);
   line-height: 1.4;
-  margin-bottom: 0.5rem; /* Space for text below */
+
   
   /* --- Alignment styles added --- */
   min-height: 80px; /* Forces all headers to be the same height. Adjust value as needed. */
