@@ -9,6 +9,7 @@ import Footer from '@/components/Trainers/Footer/Footer.js';
 import CarouselSlides from '@/components/Trainers/CarouselSlides/CarouselSlides.js';
 import AdditionalParagraph from '@/components/Trainers/Hero/AdditionalParagraph/AdditionalParagraph.js';
 import ModularCards from '@/components/Trainers/ModularCards/ModularCards.js';
+import Collage from '@/components/Trainers/Collage/Collage.js';
 
 const Trainers = () => {
   return (
@@ -27,6 +28,10 @@ const Trainers = () => {
 
       <FadeIn>
         <ModularCards />
+      </FadeIn>
+
+      <FadeIn>
+        <Collage />
       </FadeIn>
 
       <FadeIn>
