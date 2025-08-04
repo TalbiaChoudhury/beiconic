@@ -12,6 +12,7 @@
   padding-top: 100px; 
   color: var(--foreground);
   gap: 3rem;
+  text-align: left;
   min-height: 100vh; /* This will center the content vertically */
 }
 
