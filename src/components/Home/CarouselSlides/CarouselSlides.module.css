@@ -10,6 +10,7 @@
   padding-right: 20px;
   color: var(--foreground);
   align-items: center; /* Center items for better responsive behavior */
+  text-align: left;
 }
 
 /* --- Left Column: Image and Indicators --- */

@@ -175,7 +175,7 @@
 }
 
 .premiumTitle {
-  font-size: var(--header);
+  font-size: var(--subheader);
   font-weight: 900;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -228,9 +228,6 @@
 @media (max-width: 600px) {
   .container {
     padding: 1rem;
-  }
-  .header {
-    text-align: center;
   }
   .cardContent, .premiumCard {
     padding: 2rem 1.5rem;

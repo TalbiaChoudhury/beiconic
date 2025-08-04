@@ -104,13 +104,3 @@
     flex-direction: row;
   }
 }
-
-/* For small mobile screens, center the text and form */
-@media (max-width: 600px) {
-  .contentWrapper {
-    text-align: center;
-  }
-  .form {
-    align-items: center;
-  }
-}
