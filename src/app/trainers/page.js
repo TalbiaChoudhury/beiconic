@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useEffect } from 'react';
 
 import FadeInHero from '@/components/Animations/FadeIn/FadeInHero.js';
 import Hero from '../../components/Trainers/Hero/Hero.js'
@@ -12,6 +13,10 @@ import ModularCards from '@/components/Trainers/ModularCards/ModularCards.js';
 import Collage from '@/components/Trainers/Collage/Collage.js';
 
 const Trainers = () => {
+  useEffect(() => {
+      document.title = "Icon | Trainers";
+    }, []);
+
   return (
     <div>
       <FadeInHero>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Hero from "../components/Home/Hero/Hero";
 import FadeIn from "../components/Animations/FadeIn/FadeIn";
 import FadeInHero from "../components/Animations/FadeIn/FadeInHero";
@@ -9,6 +10,10 @@ import Pricing from '../components/Home/Pricing/Pricing';
 import Footer from '../components/Home/Footer/Footer';
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Icon | Home";
+  }, []);
+
   return (
     <>
       <FadeInHero>
