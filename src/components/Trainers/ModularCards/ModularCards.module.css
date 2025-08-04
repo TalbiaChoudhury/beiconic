@@ -100,7 +100,6 @@
   /* --- Alignment styles added --- */
   min-height: 80px; /* Forces all headers to be the same height. Adjust value as needed. */
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
