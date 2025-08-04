@@ -5,7 +5,7 @@
   margin: auto;
   padding: 2rem;
   color: var(--foreground);
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-size: var(--text);
   line-height: 1.6;
 }
 

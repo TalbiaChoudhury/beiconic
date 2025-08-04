@@ -2,6 +2,9 @@
   --background: #000000;
   --foreground: #ffffff;
   --primary: #ea532b;
+  --header: clamp(2rem, 2.5vw, 3rem);
+  --subheader: clamp(1.5rem, 2vw, 2rem);
+  --text: clamp(1rem, 1.5vw, 1.125rem);
 }
 
 html,

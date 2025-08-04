@@ -126,7 +126,7 @@
 
 /* Top-left corner */
 .textBox::before {
-  top: 50px;
+  top: 0px;
   left: 0px;
   border-top: 1px solid;
   border-left: 1px solid;
@@ -137,7 +137,7 @@
 
 /* Bottom-right corner */
 .textBox::after {
-  bottom: 50px;
+  bottom: 0px;
   right: 0px;
   border-bottom: 1px solid;
   border-right: 1px solid;
@@ -147,14 +147,14 @@
 }
 
 .textTitle {
-  font-size: 1.25rem;
+  font-size: var(--subheader);
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--primary);
 }
 
 .textDescription {
-  font-size: 1rem;
+  font-size: var(--text);
   line-height: 1.6;
   color: var(--foreground);
 }
@@ -234,5 +234,26 @@
 
   .imageWrapper {
     min-height: 500px;
+  }
+
+  .textBox::before {
+    top: 50px;
+    left: 0px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-top-left-radius: 20px;
+    -webkit-mask-image: linear-gradient(to bottom right, black, transparent);
+    mask-image: linear-gradient(to bottom right, black, transparent);
+  }
+
+  /* Bottom-right corner */
+  .textBox::after {
+    bottom: 50px;
+    right: 0px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-bottom-right-radius: 20px;
+    -webkit-mask-image: linear-gradient(to top left, black, transparent);
+    mask-image: linear-gradient(to top left, black, transparent);
   }
 }

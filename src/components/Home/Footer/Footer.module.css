@@ -23,7 +23,7 @@
 
 /* Styling for the main title */
 .title {
-  font-size: clamp(1.25rem, 4vw, 1.5rem); /* Responsive font size */
+  font-size: var(--subheader); /* Responsive font size */
   font-weight: 900;
   color: var(--primary); /* Uses the primary color from your theme */
   margin-bottom: 1rem;
@@ -31,14 +31,14 @@
 
 /* Styling for the first line of text */
 .subtitle {
-  font-size: 1rem;
+  font-size: var(--text);
   line-height: 1.6;
   margin-bottom: 0.5rem;
 }
 
 /* Styling for the second line of text */
 .tagline {
-  font-size: 1rem;
+  font-size: var(--text);
   line-height: 1.6;
   margin-bottom: 2.5rem; /* Increased space before the form */
 }

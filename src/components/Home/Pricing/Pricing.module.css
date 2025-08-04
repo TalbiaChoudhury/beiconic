@@ -19,7 +19,8 @@
 }
 
 .title {
-  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-size: var(--header);
+  color: var(--primary);
   font-weight: 900;
   margin-bottom: 1rem;
   letter-spacing: 1px;
@@ -27,7 +28,7 @@
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-size: var(--text);
   line-height: 1.6;
   color: var(--foreground);
 }
@@ -104,7 +105,7 @@
 }
 
 .cardTitle {
-  font-size: 1.25rem;
+  font-size: var(--subheader);
   font-weight: 900;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -112,14 +113,14 @@
 }
 
 .cardTagline {
-  font-size: 1.2rem;
+  font-size: var(--subheader);
   font-weight: bold;
   margin-bottom: 1rem;
   color: var(--foreground);
 }
 
 .cardDescription {
-  font-size: 1rem;
+  font-size: var(--text);
   line-height: 1.6;
   color: var(--foreground);
 }
@@ -174,7 +175,7 @@
 }
 
 .premiumTitle {
-  font-size: 1.25rem;
+  font-size: var(--header);
   font-weight: 900;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -182,7 +183,7 @@
 }
 
 .premiumTagline {
-  font-size: 1.2rem;
+  font-size: var(--subheader);
   font-weight: bold;
   margin-bottom: 1rem;
   color: var(--foreground);
@@ -190,7 +191,7 @@
 }
 
 .premiumDescription {
-  font-size: 1rem;
+  font-size: var(--text);
   line-height: 1.6;
   color: var(--foreground);
   transition: color 0.4s ease-in-out;
@@ -205,7 +206,7 @@
 
 /* Styling for the footer note */
 .footerNote {
-  font-size: 0.875rem;
+  font-size: var(--text);
   line-height: 1.5;
   color: var(--foreground);
   max-width: 900px;

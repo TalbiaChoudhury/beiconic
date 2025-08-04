@@ -14,7 +14,7 @@
 }
 
 .title {
-  font-size: clamp(1.25rem, 4vw, 1.5rem); /* Responsive font size */
+  font-size: var(--header); /* Responsive font size */
   font-weight: 900;
   margin-bottom: 1rem;
   letter-spacing: 1px;
@@ -22,7 +22,7 @@
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-size: var(--text); /* Responsive font size */
   line-height: 1.6;
   color: var(--foreground);
 }
@@ -108,13 +108,13 @@
 }
 
 .cardTagline {
-  font-size: 1.1rem;
+  font-size: var(--text);
   margin-bottom: 1rem;
   color: var(--foreground);
 }
 
 .cardDescription {
-  font-size: 1rem;
+  font-size: var(--text);
   line-height: 1.6;
   color: var(--foreground);
 }
