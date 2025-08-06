@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './VisionCarousel.module.css';
 
@@ -67,7 +67,6 @@ const visionSlides = [
 
 const VisionCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselRef = useRef(null);
 
   const handlePrev = () => {
     const isFirstSlide = currentIndex === 0;
@@ -81,17 +80,10 @@ const VisionCarousel = () => {
     setCurrentIndex(newIndex);
   };
 
-  // Add this entire block of code
-  useEffect(() => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [currentIndex]); // This runs the code every time the slide index changes
-
   const currentSlide = visionSlides[currentIndex];
 
   return (
-    <div className={styles.carouselContainer} ref={carouselRef}>
+    <div className={styles.carouselContainer}>
       <div className={styles.slidesWrapper}>
   <div 
     className={styles.slideStrip} 
