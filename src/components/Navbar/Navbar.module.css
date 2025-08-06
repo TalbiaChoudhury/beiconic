@@ -18,7 +18,7 @@
   left: 0;
   width: 100%;
   /* --- Glass Effect Styles --- */
-  background-color: rgba(20, 20, 20, 0.6); 
+  background-color: rgba(14, 19, 21, 0.6); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px); /* For Safari browser support */
   /* --- End of Glass Effect Styles --- */
@@ -258,3 +258,4 @@
     font-size: 1rem;
   }
 }
+
