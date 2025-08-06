@@ -153,6 +153,7 @@
     border: none;
     display: flex;
     flex-direction: column;
+    padding-top: 5rem;
   }
   
   .slidesWrapper {
