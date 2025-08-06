@@ -39,16 +39,13 @@ const visionSlides = [
   content: (
     <>
       <p>The demand for fitness has never been higher — but the way we deliver it is stuck in the past.</p>
-      <p>Consumers want personalised support, available anytime, anywhere.</p>
-      <p>Coaches want to scale without sacrificing quality.</p>
-      <p>The industry needs a new model.</p>
-      <p>Icon sits at the intersection of three unstoppable forces:</p>
+      <br></br><p>Consumers want personalised support, available anytime, anywhere. Coaches want to scale without sacrificing quality. The industry needs a new model.</p>
+      <br></br><p>Icon sits at the intersection of three unstoppable forces:</p>
       <ul className={styles.list}>
         <li className={styles.listItem}>💡 AI that can coach with nuance</li>
         <li className={styles.listItem}>🌍 Global demand for remote fitness</li>
         <li className={styles.listItem}>💼 A new generation of coaches ready to scale their impact</li>
       </ul>
-      <p>The market is massive — and the moment is now.</p>
     </>
   )
 },
