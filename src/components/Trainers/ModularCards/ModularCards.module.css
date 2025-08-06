@@ -51,7 +51,6 @@
 
 .card {
   flex: 0 0 300px;
-  background-color: #1a1a1a;
   border: 1px solid #333;
   border-radius: 12px;
   overflow: hidden;
@@ -75,7 +74,6 @@
 .cardImagePlaceholder {
   position: relative; /* Add this line */
   height: 180px;
-  background: linear-gradient(45deg, #2c2c2c, #3a3a3a);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +81,6 @@
 
 .cardContent {
   padding: 1.5rem;
-  background-color: var(--background);
   flex-grow: 1;
   display: flex;
   flex-direction: column;

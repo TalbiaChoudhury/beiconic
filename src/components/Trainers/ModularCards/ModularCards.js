@@ -10,31 +10,31 @@ const CarouselCards = [
     id: 1,
     header: 'Lifetime Free Access',
     text: 'Have free access to the platform for life, including all future features and updates.',
-    image: '/assets/images/Home/Carousel/Carousel1.png'
+    image: '/assets/images/Trainers/ModularCards/Image1.png'
   },
   {
     id: 2,
     header: 'Better Profit Rates',
     text: '70/30, compared to the standard 60/40',
-    image: '/assets/images/Home/Carousel/Carousel1.png'
+    image: '/assets/images/Trainers/ModularCards/Image2.png'
   },
   {
     id: 3,
     header: 'Direction and Design',
     text: 'Help shape the platform with your feedback and ideas',
-    image: '/assets/images/Home/Carousel/Carousel1.png'
+    image: '/assets/images/Trainers/ModularCards/Image3.png'
   },
   {
     id: 4,
     header: 'Founding Icon Badge',
     text: 'Boost your profile with a special badge that highlights your status as a Founding Icon.',
-    image: '/assets/images/Home/Carousel/Carousel1.png'
+    image: '/assets/images/Trainers/ModularCards/Image4.png'
   },
     {
     id: 5,
     header: 'Priority Placement',
     text: 'Place your content at the top of the feed and in search results.',
-    image: '/assets/images/Home/Carousel/Carousel1.png'
+    image: '/assets/images/Trainers/ModularCards/Image5.png'
   },
 ];
 

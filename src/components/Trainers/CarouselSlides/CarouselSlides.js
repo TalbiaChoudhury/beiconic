@@ -8,26 +8,32 @@ import styles from './CarouselSlides.module.css';
 const carouselData = [
   {
     id: 1,
-    image: '/assets/images/Home/Carousel/Carousel1.png', // Make sure to have these images in your public folder
+    image: '/assets/images/Trainers/Carousel/Carousel1.png', // Make sure to have these images in your public folder
     title: 'Step 1 - Share Your Style',
     description: 'We start by getting to know you - your training methods, mindset, stories, and communication style. This onboarding helps us build something that actually feels like you.',
   },
   {
     id: 2,
-    image: '/assets/images/Home/Carousel/Carousel2.png',
+    image: '/assets/images/Trainers/Carousel/Carousel2.png',
     title: 'Step 2 - Build Your Icon',
     description: 'Our unique technology stack creates your custom trainer - your ‘Icon’ - based on your inputs. It talks like you. It coaches like you. It’s your knowledge, made scalable.',
   },
   {
     id: 3,
-    image: '/assets/images/Home/Carousel/Carousel3.png',
+    image: '/assets/images/Trainers/Carousel/Carousel3.png',
     title: 'Step 3 - Client Train Anytime',
     description: 'Your Icon lives in the app, coaching clients around the clock. No time zones. No language barriers. No scheduling. Just high-quality training - on demand.',
   },
   {
     id: 4,
-    image: '/assets/images/Home/Carousel/Carousel4.png',
+    image: '/assets/images/Trainers/Carousel/Carousel4.png',
     title: 'Step 4 - You Stay in Control',
+    description: 'We don’t believe in replacing humans with artificial intelligence. You can review, guide and moderate your Icon’s behaviour anytime, making sure it evolves with you and stays try to your philosophy.',
+  },
+    {
+    id: 5,
+    image: '/assets/images/Trainers/Carousel/Carousel5.png',
+    title: 'Step 5 - You Stay in Control',
     description: 'We don’t believe in replacing humans with artificial intelligence. You can review, guide and moderate your Icon’s behaviour anytime, making sure it evolves with you and stays try to your philosophy.',
   },
 ];
