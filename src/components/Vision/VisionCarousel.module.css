@@ -153,7 +153,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 550px; /* Ensures enough space for text */
+    min-height: 500px; /* Ensures enough space for text */
     text-align: center;
   }
 
