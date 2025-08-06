@@ -44,9 +44,9 @@ const visionSlides = [
       <p>The industry needs a new model.</p>
       <p>Icon sits at the intersection of three unstoppable forces:</p>
       <ul className={styles.list}>
-        <li className={styles.listItem}>💡 "AI that can coach with nuance"</li>
-        <li className={styles.listItem}>🌍 "Global demand for remote fitness"</li>
-        <li className={styles.listItem}>💼 "A new generation of coaches ready to scale their impact"</li>
+        <li className={styles.listItem}>💡 AI that can coach with nuance</li>
+        <li className={styles.listItem}>🌍 Global demand for remote fitness</li>
+        <li className={styles.listItem}>💼 A new generation of coaches ready to scale their impact</li>
       </ul>
       <p>The market is massive — and the moment is now.</p>
     </>
