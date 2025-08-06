@@ -1,6 +1,6 @@
 :root {
   --background: #0E1315;
-  --foreground: #ffffff;
+  --foreground: #EAEAEA;
   --primary: #ea532b;
   --header: clamp(3rem, 2.5vw, 3rem);
   --subheader: clamp(1.5rem, 2vw, 2rem);
