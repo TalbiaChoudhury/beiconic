@@ -1,0 +1,148 @@
+/* VisionCarousel.module.css */
+
+.carouselContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 7rem auto;
+  background-color: #12181a;
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid #333;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+/* This is a new style */
+.slidesWrapper {
+  width: 100%;
+}
+
+/* This is a new style */
+.slideStrip {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* This creates the smooth slide! */
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-height: 420px;
+  box-sizing: border-box;
+  padding: 2rem 4rem;
+  display: flex;
+  
+  /* This is the key change: aligns the text block to the top */
+  align-items: flex-start; 
+}
+
+.imageContainer {
+  position: absolute;
+
+  /* This combination perfectly centers the image vertically */
+  top: 60%;
+  transform: translateY(-50%);
+
+  /* This positions the image on the right side */
+  right: 4rem;
+
+  /* This gives the image a fixed, controllable size */
+  width: 400px;
+  height: 400px;
+
+  /* This ensures the image stays behind the text */
+  z-index: 1;
+  
+  /* The image is now fully visible, but you can lower this if you want */
+  opacity: 0.15;
+}
+
+.textContainer {
+  position: relative;
+  z-index: 2;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1rem; /* Reduced from 5rem */
+}
+
+.miniTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a0a0a0; /* A light grey color */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem; /* Adds space between it and the main header */
+}
+
+.header {
+  /* Reduced font size */
+  font-size: 2rem; 
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.text {
+  /* Reduced font size and line height */
+  font-size: 1rem;
+  line-height: 1.6; 
+  color: #dcdcdc;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.navButton {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navButton:hover {
+  background-color: #555;
+}
+
+.slideCounter {
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 50px;
+  text-align: center;
+  color: #aaa;
+}
+
+/* --- For smaller screens --- */
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .header {
+    font-size: 1.8rem;
+  }
+}

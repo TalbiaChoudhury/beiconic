@@ -92,7 +92,7 @@
 .desktopLinks a {
   color: var(--foreground);
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   transition: color 0.2s ease-in-out;
 }
 

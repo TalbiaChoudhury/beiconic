@@ -1,19 +1,8 @@
-'use client';
+// app/vision/page.js
+import VisionCarousel from '@/components/Vision/VisionCarousel'; // The path might be slightly different
 
-import React from 'react';
-import { useEffect } from 'react';
-import VisionComponent from '@/components/Vision/VisionComponent/VisionComponent';
-
-const Vision = () => {
-  useEffect(() => {
-      document.title = "Icon | Vision";
-    }, []);
-
+export default function VisionPage() {
   return (
-    <div>
-      <VisionComponent />
-    </div>
+    <VisionCarousel />
   );
-};
-
-export default Vision;
+}
