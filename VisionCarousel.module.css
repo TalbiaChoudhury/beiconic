@@ -1,0 +1,205 @@
+/* VisionCarousel.module.css */
+
+.carouselContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 7rem auto;
+  background-color: #12181a;
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid #333;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+/* This is a new style */
+.slidesWrapper {
+  width: 100%;
+}
+
+/* This is a new style */
+.slideStrip {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* This creates the smooth slide! */
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  /* Set a new fixed height. This is the value you will adjust. */
+  height: 430px; 
+  box-sizing: border-box;
+  padding: 2rem 4rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.imageContainer {
+  position: absolute;
+
+  /* This combination perfectly centers the image vertically */
+  top: 60%;
+  transform: translateY(-50%);
+
+  /* This positions the image on the right side */
+  right: 4rem;
+
+  /* This gives the image a fixed, controllable size */
+  width: 400px;
+  height: 400px;
+
+  /* This ensures the image stays behind the text */
+  z-index: 1;
+  
+  /* The image is now fully visible, but you can lower this if you want */
+  opacity: 0.15;
+}
+
+.textContainer {
+  position: relative;
+  z-index: 2;
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 0.15rem; /* Reduced from 5rem */
+}
+
+.miniTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a0a0a0; /* A light grey color */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.25rem; /* Adds space between it and the main header */
+}
+
+.header {
+  /* Reduced font size */
+  font-size: 2rem; 
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.text {
+  /* Reduced font size and line height */
+  font-size: 1rem;
+  line-height: 1.6; 
+  color: #dcdcdc;
+}
+
+.list {
+  list-style-type: none; /* Removes default bullet points */
+  padding-left: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.listItem {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Adds space between emoji and text */
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.navButton {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navButton:hover {
+  background-color: #555;
+}
+
+.slideCounter {
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 50px;
+  text-align: center;
+  color: #aaa;
+}
+
+/* --- FINAL MOBILE STYLES --- */
+@media (max-width: 768px) {
+  
+  .carouselContainer {
+    height: 100svh;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .slidesWrapper {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slideStrip, .slide {
+    height: 100%;
+  }
+
+  .slide {
+    position: relative; /* This is essential for layering */
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .textContainer {
+    position: relative;
+    z-index: 2; /* Places text ON TOP of the image */
+    width: 100%;
+    height: auto;
+    max-height: 100%; /* Ensures text doesn't overflow the slide */
+    overflow-y: auto; /* Adds a scrollbar ONLY if text is too long */
+  }
+
+  .imageContainer {
+    position: absolute; /* Allows centering behind the text */
+    z-index: 1; /* Places image BEHIND the text */
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1; /* Makes the image a subtle background element */
+  }
+
+  .navigation {
+    flex-shrink: 0; /* Prevents navigation from shrinking */
+  }
+
+  /* Font size adjustments */
+  .header { font-size: 1.8rem; }
+  .text { font-size: 1rem; }
+  .miniTitle { font-size: 0.8rem; }
+}
