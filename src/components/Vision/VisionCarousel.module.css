@@ -156,6 +156,7 @@
     /* This helps position the content and navigation */
     display: flex;
     flex-direction: column;
+    padding-top: 5rem;
   }
   
   .slidesWrapper {
