@@ -143,63 +143,61 @@
   color: #aaa;
 }
 
-/* --- For smaller screens --- */
+/* --- FINAL MOBILE & TABLET STYLES --- */
 @media (max-width: 768px) {
-  .slide {
-    flex-direction: column;
-    text-align: center;
+  
+  /* This allows the container for all slides to have variable-height children */
+  .slideStrip {
+    align-items: flex-start;
   }
   
-  .imageContainer {
-    width: 100%;
-    height: 250px;
-  }
-  
-  .header {
-    font-size: 1.8rem;
-  }
-}
-
-/* --- MOBILE & TABLET STYLES --- */
-@media (max-width: 768px) {
-
-  /* Make the slide height adjust to content */
+  /* This uses Grid to create a simple top-to-bottom layout */
   .slide {
-    height: auto;
-    flex-direction: column; /* Stack text on top of image */
-    padding: 2rem;
+    display: grid;
+    grid-template-rows: auto auto;
+    height: auto; /* Let the slide height be determined by its content */
+    padding: 2rem 1.5rem;
   }
 
-  /* Allow text to take up the full width */
+  /* This places the text content in the first row */
   .textContainer {
+    grid-row: 1;
+    position: relative;
     width: 100%;
-    padding-top: 2rem;
-    text-align: center; /* Center-align text on mobile */
+    height: auto;
+    padding-top: 0;
   }
 
-  /* Reset the complex image positioning for a simpler mobile view */
+  /* This places the image in the second row */
   .imageContainer {
-    position: relative; /* Resets the absolute positioning */
-    width: 100%;
-    height: 250px;
-    right: auto;
+    grid-row: 2;
+    position: relative;
+    width: 90%;
+    height: 220px;
+    margin: 2rem auto 0 auto;
     top: auto;
+    right: auto;
     transform: none;
-    margin-top: 2rem; /* Add space between text and image */
-    opacity: 1; /* Make image fully visible on mobile */
+    opacity: 1;
   }
 
-  /* Reduce the font sizes for smaller screens */
+  /* Font size adjustments for mobile */
   .header {
     font-size: 1.8rem;
   }
 
   .text {
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .miniTitle {
     font-size: 0.8rem;
   }
+
+  /* Add this new rule anywhere inside your @media block */
+
+.slideStrip {
+  align-items: flex-start;
+}
 }
