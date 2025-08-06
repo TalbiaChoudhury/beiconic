@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
-import hero from '../../../../public/assets/images/Home/Hero/Hero.png';
+import hero from '../../../../public/assets/images/Trainers/Trainer_Images/Trainer_Hero.png';
 
 const Hero = () => {
   // State for the email input
@@ -93,3 +93,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
