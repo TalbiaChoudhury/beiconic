@@ -155,7 +155,7 @@
   .slide {
     display: grid;
     grid-template-rows: auto auto;
-    height: auto; /* Let the slide height be determined by its content */
+    height: auto;
     padding: 2rem 1.5rem;
   }
 
@@ -194,10 +194,4 @@
   .miniTitle {
     font-size: 0.8rem;
   }
-
-  /* Add this new rule anywhere inside your @media block */
-
-.slideStrip {
-  align-items: flex-start;
-}
 }
