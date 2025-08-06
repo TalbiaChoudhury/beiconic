@@ -146,46 +146,60 @@
 /* --- FINAL MOBILE STYLES --- */
 @media (max-width: 768px) {
   
-  .slide {
-    position: relative; /* This is essential for layering */
-    height: auto;
-    padding: 1rem 1.5rem;
+  .carouselContainer {
+    /* This makes the component fill the entire screen height */
+    min-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    overflow: visible;
+    /* This helps position the content and navigation */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 500px; /* Ensures enough space for text */
-    text-align: center;
+    flex-direction: column;
+  }
+  
+  .slidesWrapper {
+    flex-grow: 1; /* Allows the slide area to fill available space */
+  }
+  
+  .slide {
+    position: relative;
+    height: 100%; /* Changed from auto to fill the wrapper */
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center; /* Vertically centers the text block */
+    text-align: left; /* Aligns all text to the left */
   }
 
   .textContainer {
     position: relative;
-    z-index: 2; /* Places text ON TOP of the image */
+    z-index: 2;
     width: 100%;
     height: auto;
   }
 
   .imageContainer {
-    position: absolute; /* Allows centering behind the text */
-    z-index: 1; /* Places image BEHIND the text */
+    position: absolute;
+    z-index: 1;
     width: 100%;
     height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.1; /* Makes the image a subtle background element */
+    opacity: 0.1;
   }
 
-  /* Font size adjustments for mobile */
-  .header {
-    font-size: 1.8rem;
+  .navigation {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background-color: #12181a;
+    padding: 1rem 0;
+    width: 100%;
   }
 
-  .text {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .miniTitle {
-    font-size: 0.8rem;
-  }
+  /* Font size adjustments */
+  .header { font-size: 1.8rem; }
+  .text { font-size: 1rem; }
+  .miniTitle { font-size: 0.8rem; }
 }
