@@ -165,23 +165,25 @@
     height: 100%;
   }
 
-  .slide {
-    position: relative; /* This is essential for layering */
-    padding: 2rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+.slide {
+  position: relative;
+  height: 100%;
+  padding: 0 1.5rem; /* Use padding for side spacing only */
+  display: flex;
+  align-items: center; /* This vertically centers the textContainer */
+  text-align: left;
+}
   
-  .textContainer {
-    position: relative;
-    z-index: 2; /* Places text ON TOP of the image */
-    width: 100%;
-    height: auto;
-    max-height: 100%; /* Ensures text doesn't overflow the slide */
-    overflow-y: auto; /* Adds a scrollbar ONLY if text is too long */
-  }
+.textContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 90%; /* Make the container a fixed size */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align text to the TOP of the container */
+  overflow-y: auto; /* Allow scrolling for very long text */
+}
 
   .imageContainer {
     position: absolute; /* Allows centering behind the text */
