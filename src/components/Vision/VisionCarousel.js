@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './VisionCarousel.module.css';
 
@@ -19,7 +19,6 @@ const visionSlides = [
     </>
     ),
     image: '/assets/images/Vision/1.png',
-    backgroundVector: '/assets/images/backgrounds/background-vector-1.svg', // New background vector for the first slide
   },
   {
     id: 2,
@@ -178,7 +177,21 @@ const VisionCarousel = () => {
     setCurrentIndex(newIndex);
   };
 
-  const currentSlide = visionSlides[currentIndex];
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+        handlePrev();
+      } else if (event.key === 'ArrowRight') {
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handlePrev, handleNext]);
 
   return (
     <div className={styles.carouselContainer}>
@@ -189,25 +202,15 @@ const VisionCarousel = () => {
         >
           {visionSlides.map((slide) => (
             <div key={slide.id} className={styles.slide}>
-              {/* Conditional rendering for the background image */}
-              {slide.backgroundVector ? (
-                // Use a div with a background image style for the vector
-                <div 
-                  className={styles.imageContainer}
-                  style={{ backgroundImage: `url(${slide.backgroundVector})` }}
+              <div className={styles.imageContainer}>
+                <Image
+                  src={slide.image}
+                  alt={slide.header}
+                  layout="fill"
+                  objectFit="cover"
+                  onError={(e) => { e.target.style.display = 'none'; }}
                 />
-              ) : (
-                // Use the Next.js Image component for other images
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={slide.image}
-                    alt={slide.header}
-                    layout="fill"
-                    objectFit="cover"
-                    onError={(e) => { e.target.style.display = 'none'; }}
-                  />
-                </div>
-              )}
+              </div>
               <div className={styles.textContainer}>
                 <h3 className={styles.miniTitle}>{slide.miniTitle}</h3>
                 <h2 className={styles.header}>{slide.header}</h2>
