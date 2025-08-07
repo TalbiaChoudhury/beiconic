@@ -180,9 +180,9 @@
   .imageContainer {
     position: absolute;
     z-index: 1;
-    width: 90%;
-    height: 90%;
-    top: 90%;
+    width: 80%;
+    height: 80%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.1;
