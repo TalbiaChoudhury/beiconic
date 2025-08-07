@@ -1,6 +1,5 @@
 /* VisionCarousel.module.css */
 
-
 .carouselContainer {
   width: 100%;
   max-width: 900px;
@@ -16,21 +15,18 @@
   padding-bottom: 1rem;
 }
 
-/* This is a new style */
 .slidesWrapper {
   width: 100%;
 }
 
-/* This is a new style */
 .slideStrip {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* This creates the smooth slide! */
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
   position: relative;
   flex: 0 0 100%;
-  /* Set a new fixed height. This is the value you will adjust. */
   height: 430px; 
   box-sizing: border-box;
   padding: 2rem 4rem;
@@ -40,23 +36,18 @@
 
 .imageContainer {
   position: absolute;
-
-  /* This combination perfectly centers the image vertically */
   top: 60%;
   transform: translateY(-50%);
-
-  /* This positions the image on the right side */
   right: 4rem;
-
-  /* This gives the image a fixed, controllable size */
   width: 400px;
   height: 400px;
-
-  /* This ensures the image stays behind the text */
   z-index: 1;
-  
-  /* The image is now fully visible, but you can lower this if you want */
   opacity: 0.15;
+  
+  /* These lines are added to properly display the background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .textContainer {
@@ -67,20 +58,19 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 0.15rem; /* Reduced from 5rem */
+  padding-top: 0.15rem;
 }
 
 .miniTitle {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #a0a0a0; /* A light grey color */
+  color: #a0a0a0;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 0.5rem; /* Adds space between it and the main header */
+  margin-bottom: 0.5rem;
 }
 
 .header {
-  /* Reduced font size */
   font-size: 2rem; 
   font-weight: 700;
   color: var(--primary);
@@ -89,27 +79,25 @@
 }
 
 .text {
-  /* Reduced font size and line height */
   font-size: 1rem;
   line-height: 1.6; 
   color: #dcdcdc;
 }
 
 .list {
-  list-style-type: none; /* Removes default bullet points */
+  list-style-type: none;
   padding-left: 0;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 .listItem {
-  margin-bottom: 1rem; /* Adds a bit of space between lines */
+  margin-bottom: 1rem;
 }
 
-/* This new rule targets the bolded text inside your list items */
 .listItem strong {
-  display: inline-block; /* Allows us to give it a width */
-  width: 80px;         /* Sets a fixed width for the label */
+  display: inline-block;
+  width: 80px;
 }
 
 .navigation {
@@ -149,7 +137,6 @@
 
 /* --- FINAL MOBILE STYLES --- */
 @media (max-width: 768px) {
-  
   .carouselContainer {
     height: 100%;
     margin: 0;
@@ -170,49 +157,44 @@
     height: 100%;
   }
 
-.slide {
-  position: relative;
-  height: 100%;
-  padding: 0 1.5rem; /* Use padding for side spacing only */
-  display: flex;
-  align-items: center; /* This vertically centers the textContainer */
-  text-align: left;
-}
+  .slide {
+    position: relative;
+    height: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
   
-.textContainer {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 90%; /* Make the container a fixed size */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Align text to the TOP of the container */
-  overflow-y: auto; /* Allow scrolling for very long text */
-}
+  .textContainer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
 
   .imageContainer {
-    position: absolute; /* Allows centering behind the text */
-    z-index: 1; /* Places image BEHIND the text */
+    position: absolute;
+    z-index: 1;
     width: 100%;
     height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.1; /* Makes the image a subtle background element */
-  }
-
-    .backgroundVector {
+    opacity: 0.1;
+    
+    /* These lines are added to properly display the background image on mobile */
     background-size: contain;
-    width: 80%;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.08;
+    background-position: center;
+    background-repeat: no-repeat;
   }
-
+  
   .navigation {
-    flex-shrink: 0; /* Prevents navigation from shrinking */
+    flex-shrink: 0;
   }
 
   /* Font size adjustments */
@@ -220,4 +202,3 @@
   .text { font-size: 1rem; }
   .miniTitle { font-size: 0.8rem; }
 }
-
