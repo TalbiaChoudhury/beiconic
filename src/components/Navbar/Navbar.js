@@ -5,13 +5,33 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import logoWithText from '../../../public/assets/images/LogoText.png';
+
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Trainers', href: '/trainers' },
+  { name: 'Vision', href: '/vision' },
+];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [underlineStyle, setUnderlineStyle] = useState({});
+  const navItemsRef = useRef({});
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (navItemsRef.current[pathname]) {
+      const { offsetLeft, offsetWidth } = navItemsRef.current[pathname];
+      setUnderlineStyle({
+        width: offsetWidth,
+        left: offsetLeft,
+      });
+    }
+  }, [pathname]);
 
   return (
     <nav className={styles.navbar}>
@@ -31,9 +51,20 @@ const Navbar = () => {
         {/* Part 2: Centered links for desktop */}
         <div className={`${styles.navSection} ${styles.navCenter}`}>
           <ul className={styles.desktopLinks}>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/trainers">Trainers</Link></li>
-            <li><Link href="/vision">Vision</Link></li>
+            {navLinks.map(link => (
+              <li 
+                key={link.name}
+                ref={el => (navItemsRef.current[link.href] = el)}
+              >
+                <Link 
+                  href={link.href} 
+                  className={pathname === link.href ? styles.active : ''}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+            <div className={styles.underline} style={underlineStyle} />
           </ul>
         </div>
         
@@ -55,17 +86,19 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* This list now serves as the mobile menu overlay (Sign Up button removed) */}
+        {/* This list now serves as the mobile menu overlay */}
         <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
-          <li>
-            <Link href="/" onClick={closeMenu}>Home</Link>
-          </li>
-          <li>
-            <Link href="/trainers" onClick={closeMenu}>Trainers</Link>
-          </li>
-          <li>
-            <Link href="/vision" onClick={closeMenu}>Vision</Link>
-          </li>
+          {navLinks.map(link => (
+            <li key={link.name}>
+              <Link 
+                href={link.href} 
+                onClick={closeMenu} 
+                className={pathname === link.href ? styles.activeMobileLink : ''}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

@@ -80,6 +80,7 @@
 }
 
 .desktopLinks {
+  position: relative; /* This is key for positioning the underline */
   font-family: var(--font-geist-sans);
   list-style: none;
   display: flex;
@@ -87,6 +88,10 @@
   gap: 2rem;
   margin: 0;
   padding: 0;
+}
+
+.desktopLinks li {
+  position: relative;
 }
 
 .desktopLinks a {
@@ -98,6 +103,19 @@
 
 .desktopLinks a:hover {
   color: var(--primary);
+}
+
+/* --- NEW: Sliding Underline Styles --- */
+.desktopLinks a.active {
+  color: #ffffff; /* Change link color to white when active */
+}
+
+.underline {
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  background-color: #ffffff; /* Change the underline color to white */
+  transition: left 0.25s ease-out, width 0.25s ease-out;
 }
 
 .logo {
@@ -216,7 +234,7 @@
   .desktopLinks {
     display: none;
   }
-
+  
   /* Make the logo section not take up 1/3 of the space */
   .navSection {
       flex: 0 1 auto;
@@ -254,8 +272,15 @@
     list-style: none;
   }
 
-  .navLinks.active a {
+  /* Active Link Styles for mobile */
+  .navLinks a {
     font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .navLinks a:hover,
+  .navLinks a.activeMobileLink { /* The active link will be white */
+    color: #ffffff;
+    font-weight: bold;
   }
 }
-
