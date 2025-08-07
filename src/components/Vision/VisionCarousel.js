@@ -224,7 +224,7 @@ const VisionCarousel = () => {
           className={styles.slideStrip} 
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {visionSlides.map((slide) => (
+          {visionSlides.map((slide, index) => (
             <div key={slide.id} className={styles.slide}>
               <div className={styles.imageContainer}>
                 <Image
@@ -232,6 +232,7 @@ const VisionCarousel = () => {
                   alt={slide.header}
                   layout="fill"
                   objectFit="cover"
+                  priority={index === 0} // Only set priority for the first image
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>

@@ -10,17 +10,6 @@
   }
 }
 
-/* Animation for the image fade-in effect */
-@keyframes imageFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    /* The end opacity is now 0.15 to match the static opacity */
-    opacity: 0.15;
-  }
-}
-
 .carouselContainer {
   width: 100%;
   max-width: 900px;
@@ -35,7 +24,7 @@
   overflow: hidden;
   padding-bottom: 1rem;
   
-  /* Add these two lines to apply the animation */
+  /* The main container still fades in */
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-timing-function: ease-in;
@@ -68,18 +57,9 @@
   width: 400px;
   height: 400px;
   z-index: 1;
-  /* Remove the static opacity to allow the animation to control it completely */
-  /* opacity: 0.15; */
   
-  /* These lines are for the fade-in effect */
-  animation-name: imageFadeIn;
-  animation-duration: 0.8s;
-  animation-timing-function: ease-in;
-  animation-delay: 0.5s;
-  
-  /* Set the initial opacity to 0 and the final to 0.15 */
-  opacity: 0; /* Set initial opacity to 0 */
-  animation-fill-mode: forwards; /* This keeps the final state of the animation */
+  /* The image no longer fades in, so we set a static opacity */
+  opacity: 0.15;
   
   background-size: cover;
   background-position: center;
@@ -221,11 +201,6 @@
     top: 84%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /*
-      For mobile, the opacity is already set low.
-      The fade-in effect is not necessary here because the opacity is constant.
-      If you want a mobile fade-in, you need to adjust these values separately.
-    */
     opacity: 0.1;
     
     background-size: contain;
