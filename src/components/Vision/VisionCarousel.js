@@ -18,7 +18,7 @@ const visionSlides = [
       <p>Technology driven. Human at heart.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/1.png'
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const visionSlides = [
       <p>💡 <em>80% of personal trainers leave the industry within two years.</em></p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ const visionSlides = [
       <p>Each Icon is tailored to reflect the trainer’s voice, methods, and mindset — delivering personal, ongoing support to clients without the time pressure or burnout.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
     {
     id: 4,
@@ -65,7 +65,7 @@ const visionSlides = [
       <p>Clients want tailored guidance — and coaches want to reach more people. Icon is where those needs finally meet.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
   {
     id: 5,
@@ -82,7 +82,7 @@ const visionSlides = [
       <p>💡 <em>Every interaction feels personal — because every Icon is designed (and refined) by a real person.</em></p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
 {
     id: 6,
@@ -99,7 +99,7 @@ const visionSlides = [
       <p>No limits. No gatekeeping. No burnout.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
   {
     id: 7,
@@ -115,7 +115,7 @@ const visionSlides = [
       <p><em>Trainers are ready to scale. Clients are ready for better.</em></p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
     {
     id: 8,
@@ -130,7 +130,7 @@ const visionSlides = [
       <p>Real coaches. Real style. Always on.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
   {
     id: 9,
@@ -145,7 +145,7 @@ const visionSlides = [
       <p>We want to transform the way people train.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
     {
     id: 10,
@@ -158,7 +158,7 @@ const visionSlides = [
       <p>🔗 Join the waitlist. This is the future.</p>
     </>
     ),
-    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+    image: '/assets/images/Vision/Carousel4.png'
   },
 ];
 
