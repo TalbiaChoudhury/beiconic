@@ -9,60 +9,157 @@ const visionSlides = [
     id: 1,
     miniTitle: "The Vision",
     header: '🚀 Coaching. Reimagined.',
-    textLine1: 'Real trainers. AI scale. Limitless impact.',
-    textLine2: 'Icon is where top coaches build AI-versions of themselves - delivering 24/7 support to thousands of clients at once, without losing their voice.',
+    content: (
+    <>
+      <p><strong>Real trainers. AI scale. Limitless impact.</strong></p>
+      <br />
+      <p>Icon is where top coaches build AI-powered versions of themselves — delivering 24/7 personal support to thousands of clients at once, without ever losing their voice.</p>
+      <br />
+      <p>Technology driven. Human at heart.</p>
+    </>
+    ),
     image: '/assets/images/Trainers/Carousel/Carousel4.png'
   },
   {
     id: 2,
     miniTitle: "The Problem(s)",
-    header: "💔 The Fitness Industy isn't Working",
-    textLine1: 'Clients face sky-high costs, soulless apps, and limited access to real support.',
-    textLine2: 'Trainers burn out, trapped in a system that demands unpaid hours, capped income, and endless hustle — just to stay afloat.',
-    textLine3: '💡 80% of personal trainers leave the industry within two years.',
-    image: '/assets/images/vision/slide-problem.png'
+    header: '💔 The Fitness Industry is Broken',
+    content: (
+    <>
+      <p><strong>Clients overpay. Coaches burn out. Everyone loses.</strong></p>
+      <br />
+      <p>Fitness apps are impersonal. Coaching is unaffordable. And the people who love helping others — trainers — are pushed to exhaustion. The system fails everyone it was meant to serve.</p>
+      <br />
+      <p>💡 <em>80% of personal trainers leave the industry within two years.</em></p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
   },
   {
     id: 3,
     miniTitle: "The Solution",
     header: '🧠 Meet Icon',
-    textLine1: "Icon lets trainers create digital versions of themselves — personalised, intelligent, and always available. These AI-powered Icons deliver guidance in the coach’s own voice and style, supporting clients anytime, anywhere, without losing the human touch.",
-    textLine2: 'Unlike generic fitness apps, Icons are fully trainer-controlled — every message, plan, and interaction reflects the real person behind it.',
-    image: '/assets/images/vision/slide-solution.png'
-  },
-// Add this new slide object to your visionSlides array
-{
-  id: 4, // Make sure the ID is unique
-  miniTitle: "Market Opportunity",
-  header: "A $4.5 Trillion Opportunity",
-  image: '/assets/images/vision/your-image-for-this-slide.png', // Add an image
-  content: (
+    content: (
     <>
-      <p>The demand for fitness has never been higher — but the way we deliver it is stuck in the past.</p>
-      <br></br><p>Consumers want personalised support, available anytime, anywhere. Coaches want to scale without sacrificing quality. The industry needs a new model.</p>
-      <br></br><p>Icon sits at the intersection of three unstoppable forces:</p>
-      <ul className={styles.list}>
-        <li className={styles.listItem}>💡 AI that can coach with nuance</li>
-        <li className={styles.listItem}>🌍 Global demand for remote fitness</li>
-        <li className={styles.listItem}>💼 A new generation of coaches ready to scale their impact</li>
-      </ul>
+      <p><strong>Coaching, powered by people - and scaled by AI.</strong></p>
+      <br />
+      <p>Icon lets real coaches create intelligent, always-available versions of themselves.</p>
+      <br />
+      <p>Each Icon is tailored to reflect the trainer’s voice, methods, and mindset — delivering personal, ongoing support to clients without the time pressure or burnout.</p>
     </>
-  )
-},
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
+    {
+    id: 4,
+    miniTitle: "Market Opportunity",
+    header: '📊 A $4.5 Trillion Industry',
+    content: (
+    <>
+      <p><strong>Fitness is growing. Coaching hasn’t kept up.</strong></p>
+      <br />
+      <p>The wellness industry is massive, but coaching access is still limited.</p>
+      <br />
+      <p>AI is ready. Remote coaching is the norm.</p>
+      <br />
+      <p>Clients want tailored guidance — and coaches want to reach more people. Icon is where those needs finally meet.</p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
   {
     id: 5,
-    header: '',
-    textLine1: '',
-    textLine2: '',
-    image: '/assets/images/vision/slide-users.png'
+    miniTitle: "Product Overview",
+    header: '🛠️ What Icon Actually Does',
+    content: (
+    <>
+      <p><strong>One platform. Two users. Infinite value.</strong></p>
+      <br />
+      <p>Coaches create, customise, and manage their own AI trainers — setting tone, logic, and goals.</p>
+      <br />
+      <p>Clients choose an Icon, get daily support, and track their progress.</p>
+      <br />
+      <p>💡 <em>Every interaction feels personal — because every Icon is designed (and refined) by a real person.</em></p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
+{
+    id: 6,
+    miniTitle: "Business Model",
+    header: '🔄 Everyone Wins',
+    content: (
+    <>
+      <p><strong>Scalable for coaches. Accessible for clients.</strong></p>
+      <br />
+      <p>Trainers coach without burnout.</p>
+      <br />
+      <p>Clients access real, genuine guidance.</p>
+      <br />
+      <p>No limits. No gatekeeping. No burnout.</p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
   },
   {
-    id: 6,
-    header: '',
-    textLine1: '',
-    textLine2: '',
-    image: '/assets/images/vision/slide-ecosystem.png'
-  }
+    id: 7,
+    miniTitle: "Social Proof",
+    header: "🌱 We're just getting started",
+    content: (
+    <>
+      <p><strong>Icon is more than just an idea - it's already under construction.</strong></p>
+      <br />
+      <p>The platform is in development. Our first cohort of expert coaches are preparing to build their Icons.</p>
+      <br />
+      <p>Early feedback has been overwhelmingly clear:</p>
+      <p><em>Trainers are ready to scale. Clients are ready for better.</em></p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
+    {
+    id: 8,
+    miniTitle: "Competitive Advantage",
+    header: "🥇 Why Icon Will Succeed",
+    content: (
+    <>
+      <p><strong>Authentic Intelligence: real expertise, infinite scale.</strong></p>
+      <br />
+      <p>Other apps offer templates. Icon offers people.</p>
+      <br />
+      <p>Real coaches. Real style. Always on.</p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
+  {
+    id: 9,
+    miniTitle: "The Future",
+    header: "🔮 Thousands of Athletes. One Platform.",
+    content: (
+    <>
+      <p><strong>Coaching becomes culture.</strong></p>
+      <br />
+      <p>From fitness to nutrition to recovery, and beyond - Icon will amplify expert voices worldwide.</p>
+      <br />
+      <p>We want to transform the way people train.</p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
+    {
+    id: 10,
+    miniTitle: "Call to Action",
+    header: "📣 Ready to See The Future of Fitness?",
+    content: (
+    <>
+      <p><strong>Build your Icon or find your fit.</strong></p>
+      <br />
+      <p>🔗 Join the waitlist. This is the future.</p>
+    </>
+    ),
+    image: '/assets/images/Trainers/Carousel/Carousel4.png'
+  },
 ];
 
 const VisionCarousel = () => {
@@ -104,23 +201,7 @@ const VisionCarousel = () => {
           <h3 className={styles.miniTitle}>{slide.miniTitle}</h3>
           <h2 className={styles.header}>{slide.header}</h2>
         <div className={styles.text}>
-  {slide.content ? slide.content : (
-    <>
-      <p>{slide.textLine1}</p>
-      {slide.textLine2 && (
-        <>
-          <br />
-          <p>{slide.textLine2}</p>
-        </>
-      )}
-      {slide.textLine3 && (
-        <>
-          <br />
-          <p><em>{slide.textLine3}</em></p>
-        </>
-      )}
-    </>
-  )}
+  {slide.content}
 </div>
         </div>
       </div>
