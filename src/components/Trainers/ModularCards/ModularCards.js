@@ -15,7 +15,7 @@ const CarouselCards = [
   {
     id: 2,
     header: 'Better Profit Rates',
-    text: '70/30, compared to the standard 60/40',
+    text: '70/30 profit split in your favour, compared to the standard 60/40',
     image: '/assets/images/Trainers/ModularCards/Image2.png'
   },
   {
@@ -134,9 +134,11 @@ const ModularCards = () => {
       <h2 className={styles.mainHeader}>WHY JOIN NOW?</h2>
       <h3 className={styles.subHeader}>Be one of the first Icons in the world</h3>
       <p className={styles.introText}>
-        We’re only inviting a small group of trainers and athletes to become Founding Icons. We’re looking for a range of people and experiences - so there is no reason you can’t join us - Apply now!
+        We are recruiting just 50 people to form our Founding Icons - a cohort of trainers, athletes, and specialists that can contribute towards making this the most iconic fitness app in the world.
         <br /><br />
-        As a Founding Icon, you’ll get early access to the platform and influence how it evolves, and you’ll enjoy exclusive benefits for life, including:
+        <strong>We're looking for a range of people and experiences - so there is no reason you can't join us</strong> and we invite everybody to apply now.
+        <br /><br/>
+        As a Founding Icon, you'll get direct communication with the creators of Icon and early access to the platform, so you can influence how it evolves. You'll enjoy benefits for life, including:
       </p>
       <br></br>
       {/* --- End of New Content --- */}

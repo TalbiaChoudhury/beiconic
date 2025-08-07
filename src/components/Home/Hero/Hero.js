@@ -54,7 +54,10 @@ const Hero = () => {
           YOU DON’T NEED MORE WILLPOWER. <br />YOU NEED AN <span className={styles.highlight}>ICON.</span>
         </h1>
         <p className={styles.subheadline}>
-          Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span> Your Icon tracks it all - powered by real coaches, available anytime
+          Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span>
+          <br />
+          <br />
+          Your Icon tracks it all - powered by real coaches, available anytime.
         </p>
         <form className={styles.signupForm} onSubmit={handleSubmit}>
           <input

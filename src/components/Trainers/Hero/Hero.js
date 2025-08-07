@@ -54,7 +54,10 @@ const Hero = () => {
           Coach <span className={styles.highlight}>More. </span> Earn <span className={styles.highlight}>More. </span> Stress <span className={styles.highlight}>Less. </span>
         </h1>
         <p className={styles.subheadline}>
-          Icon is building a new kind of fitness platform - with digital trainers, designed by <span className={styles.bold}>real athletes</span> like you. Launch your own Icon, and reach people everywhere, all at once.
+          Icon is building a new kind of fitness platform - with digital trainers, designed by <span className={styles.bold}>real athletes</span> like you.
+          <br />
+          <br />
+          Launch your own Icon, and reach people everywhere, all at once.
         </p>
         <p className={styles.subheadline}>
           <span className={styles.bold}>Apply to join our roster of Founding Icons now!</span>

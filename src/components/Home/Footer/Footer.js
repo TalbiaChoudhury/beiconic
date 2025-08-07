@@ -50,7 +50,7 @@ const Footer = () => {
 
   return (
     <footer className={styles.footerContainer}>
-      <div className={styles.contentWrapper}>
+      <div className={styles.contentWrapper}> {/* Reverted to original contentWrapper */}
         <h2 className={styles.title}>Be The First To Experience Icon</h2>
         <p className={styles.subtitle}>
           Join our waitlist to get early access and exclusive updates.

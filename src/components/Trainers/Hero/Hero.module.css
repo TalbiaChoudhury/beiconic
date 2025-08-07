@@ -9,7 +9,8 @@
   margin: auto;
   padding: 2rem;
   /* Add this line to push content below the navbar */
-  padding-top: 100px; 
+  padding-top: 100px;
+  padding-bottom: 0px; 
   color: var(--foreground);
   gap: 3rem;
   text-align: left;

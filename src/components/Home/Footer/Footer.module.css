@@ -6,10 +6,10 @@
   margin: 4rem auto;
   display: flex;
   justify-content: center;
-  padding-left: 2rem; /* Added more vertical padding for spacing */
+  padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
-  background-color: var(--background); /* Assumes you have a global --background variable */
+  background-color: var(--background);
   color: var(--foreground);
   box-sizing: border-box;
 }
