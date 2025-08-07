@@ -107,7 +107,7 @@ const visionSlides = [
     header: "🌱 We're just getting started",
     content: (
     <>
-      <p><strong>Icon is more than just an idea - it's already under construction.</strong></p>
+      <p><strong>Icon is more than just an idea - it&apos;s already under construction.</strong></p>
       <br />
       <p>The platform is in development. Our first cohort of expert coaches are preparing to build their Icons.</p>
       <br />
