@@ -164,6 +164,8 @@ const visionSlides = [
 
 const VisionCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const handlePrev = () => {
     const isFirstSlide = currentIndex === 0;
@@ -175,6 +177,23 @@ const VisionCarousel = () => {
     const isLastSlide = currentIndex === visionSlides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      handleNext();
+    }
+    if (touchStart - touchEnd < -75) {
+      handlePrev();
+    }
   };
 
   useEffect(() => {
@@ -195,7 +214,12 @@ const VisionCarousel = () => {
 
   return (
     <div className={styles.carouselContainer}>
-      <div className={styles.slidesWrapper}>
+      <div 
+        className={styles.slidesWrapper}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div 
           className={styles.slideStrip} 
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
