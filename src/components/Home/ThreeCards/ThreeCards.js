@@ -43,7 +43,7 @@ const ThreeCards = () => {
           BUILT FOR <span className={styles.highlight1}>EVERYONE</span>
         </h2>
         <p className={styles.subtitle}>
-          From Day 1 to Day 100 goals, your <span className={styles.highlight2}>Icon adapts to your fitness</span> and your world – not the other way around.
+          From Day 1 to Day 100 goals, your <span className={styles.highlight2}>Icon adapts to your fitness</span> and your world – not the other way around
         </p>
       </div>
 

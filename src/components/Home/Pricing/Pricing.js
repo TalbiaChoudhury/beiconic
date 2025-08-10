@@ -33,7 +33,7 @@ const Pricing = () => {
       <div className={styles.header}>
         <h2 className={styles.title}>CHOOSE YOUR PLAN</h2>
         <p className={styles.subtitle}>
-          Start for free, or <span className={styles.highlight}><strong>unlock more power</strong></span> with our premium plans designed for every level of your fitness journey.
+          Start for free, or <span className={styles.highlight}>unlock more power</span> with our premium plans designed for every level of your fitness journey.
         </p>
       </div>
 

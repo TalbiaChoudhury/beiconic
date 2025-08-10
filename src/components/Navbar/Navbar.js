@@ -39,27 +39,25 @@ const Navbar = () => {
 
   // Handle click for the "Sign Up" / "Apply Now" button
   const handleSignUpClick = (e) => {
-    // This condition checks if we are on the Home page and it's 'Sign Up'
-    // OR if we are on the Trainers page and it's 'Apply Now'
-    if (
-      (pathname === '/' && buttonText === 'Sign Up') ||
-      (pathname === '/trainers' && buttonText === 'Apply Now')
-    ) {
-      if (e && e.preventDefault) {
-        e.preventDefault();
-      }
-      
-      // Scroll to the very top of the page smoothly
-      setTimeout(() => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }, 0);
+    // Prevent default behavior if on the current page
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
+    
+    // Check if we are on the Vision page
+    if (pathname === '/vision') {
+        // Dispatch a custom event to tell the carousel to go to slide 10
+        window.dispatchEvent(new Event('showCarouselSlide10'));
+    } else {
+        // Existing logic for other pages
+        setTimeout(() => {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }, 0);
 
-      // Dispatch a custom event to tell the Hero component to highlight the input
-      setTimeout(() => {
-        console.log('Navbar: Dispatching highlightHeroInput event.'); // IMPORTANT: Check for this log
-        window.dispatchEvent(new Event('highlightHeroInput'));
-      }, 800);
+        setTimeout(() => {
+          window.dispatchEvent(new Event('highlightHeroInput'));
+        }, 800);
     }
     closeMenu();
   };

@@ -21,7 +21,7 @@ const carouselData = [
   {
     id: 3,
     image: '/assets/images/Trainers/Carousel/Carousel3.png',
-    title: 'Step 3 - Train Clients Globally',
+    title: 'Step 3 - Client Train Anytime',
     description: 'Your Icon lives in the app, coaching clients around the clock. No time zones. No language barriers. No scheduling. Just high-quality training - on demand.',
   },
   {
@@ -33,47 +33,36 @@ const carouselData = [
     {
     id: 5,
     image: '/assets/images/Trainers/Carousel/Carousel5.png',
-    title: 'Step 5 - Refine Your Icon',
-    description: 'As your training style, clients, or knowledge evolve — so does your Icon. Through targeted actions like content uploads, plan reviews, and client engagement, your Icon stays up to date and continues to coach like you. The better you train it, the more visible and valuable it becomes.',
+    title: 'Step 5 - You Stay in Control',
+    description: 'We don’t believe in replacing humans with artificial intelligence. You can review, guide and moderate your Icon’s behaviour anytime, making sure it evolves with you and stays try to your philosophy.',
   },
 ];
 
 const CarouselSlides = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const imageWrapperRef = useRef(null);
-  const timeoutRef = useRef(null); // For debouncing wheel event
-  const autoscrollIntervalRef = useRef(null); // Ref to store the interval ID
+  const timeoutRef = useRef(null);
 
-  // --- Autoscroll Reset Logic ---
-  // This function will clear the existing interval and set a new one.
-  // It's wrapped in useCallback to prevent unnecessary re-creations.
-  const resetAutoscroll = useCallback(() => {
-    if (autoscrollIntervalRef.current) {
-      clearInterval(autoscrollIntervalRef.current);
-    }
-    autoscrollIntervalRef.current = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
-    }, 10000); // Autoscroll every 10 seconds (10000 milliseconds)
-  }, [carouselData.length]); // Dependency on carouselData.length
+  // --- Drag/Swipe State ---
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const dragThreshold = 50; // Min pixels to drag to trigger a slide change
 
   // --- Navigation Logic (memoized with useCallback) ---
   const goToNext = useCallback(() => {
-    resetAutoscroll(); // Reset timer on manual interaction
     setActiveIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
-  }, [carouselData.length, resetAutoscroll]); // Add resetAutoscroll to dependencies
+  }, []);
 
   const goToPrev = useCallback(() => {
-    resetAutoscroll(); // Reset timer on manual interaction
     setActiveIndex((prevIndex) => (prevIndex - 1 + carouselData.length) % carouselData.length);
-  }, [carouselData.length, resetAutoscroll]); // Add resetAutoscroll to dependencies
+  }, []);
 
   // --- Event Handlers ---
 
   // Handle clicking on a text box or indicator bar
-  const handleIndicatorClick = useCallback((index) => {
-    resetAutoscroll(); // Reset timer on manual interaction
+  const handleIndicatorClick = (index) => {
     setActiveIndex(index);
-  }, [resetAutoscroll]); // Add resetAutoscroll to dependencies
+  };
 
   // Effect to handle wheel event for scrolling, preventing page scroll
   useEffect(() => {
@@ -83,7 +72,6 @@ const CarouselSlides = () => {
     const handleWheel = (e) => {
       e.preventDefault(); // This is the key to preventing page scroll
       e.stopPropagation(); // Stop the event from bubbling up
-      resetAutoscroll(); // Reset timer on wheel interaction
 
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -107,23 +95,17 @@ const CarouselSlides = () => {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [goToPrev, goToNext, resetAutoscroll]); // Dependencies for the effect
+  }, [goToPrev, goToNext]); // Dependencies for the effect
 
-
-  // --- Drag/Swipe State ---
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const dragThreshold = 50; // Min pixels to drag to trigger a slide change
 
   // Handle drag/swipe start
-  const handleDragStart = useCallback((e) => {
-    resetAutoscroll(); // Reset timer on manual interaction
+  const handleDragStart = (e) => {
     isDragging.current = true;
     startX.current = e.pageX || e.touches[0].pageX;
-  }, [resetAutoscroll]); // Add resetAutoscroll to dependencies
+  };
 
   // Handle drag/swipe end
-  const handleDragEnd = useCallback((e) => {
+  const handleDragEnd = (e) => {
     if (!isDragging.current) return;
     isDragging.current = false;
 
@@ -137,28 +119,14 @@ const CarouselSlides = () => {
         goToNext(); // Swiped left
       }
     }
-  }, [goToPrev, goToNext]); // Dependencies for the effect
+  };
 
   // Handle mouse leave to cancel drag
-  const handleMouseLeave = useCallback((e) => {
+  const handleMouseLeave = (e) => {
       if(isDragging.current) {
           handleDragEnd(e);
       }
-  }, [handleDragEnd]); // Dependency on handleDragEnd
-
-  // --- Autoscroll Effect ---
-  // This useEffect starts the autoscroll and cleans it up.
-  // It depends on resetAutoscroll, so it will restart if resetAutoscroll changes (which it won't often due to useCallback).
-  useEffect(() => {
-    resetAutoscroll(); // Start autoscroll when component mounts or resetAutoscroll changes
-
-    // Cleanup function: clear the interval when the component unmounts
-    return () => {
-      if (autoscrollIntervalRef.current) {
-        clearInterval(autoscrollIntervalRef.current);
-      }
-    };
-  }, [resetAutoscroll]); // Dependency on resetAutoscroll
+  }
 
 
   return (
