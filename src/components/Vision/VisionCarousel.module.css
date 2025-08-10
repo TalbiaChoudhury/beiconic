@@ -42,7 +42,7 @@
 .slide {
   position: relative;
   flex: 0 0 100%;
-  height: 430px; 
+  height: 430px; /* Reverted to fixed height as per request */
   box-sizing: border-box;
   padding: 2rem 4rem;
   display: flex;
@@ -70,7 +70,7 @@
   position: relative;
   z-index: 2;
   width: 85%;
-  height: 100%;
+  height: 100%; /* Reverted to 100% as per request */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -151,6 +151,142 @@
   color: #aaa;
 }
 
+/* --- NEW: Styles for Slide 10 Forms --- */
+.formsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+.formIntro {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.15rem;
+}
+
+.formSection {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* NEW: Style for the row containing title and input */
+.formRow {
+  display: flex; /* Make it a flex container */
+  align-items: center; /* Vertically align items in the row */
+  gap: 0.5rem; /* Space between title and input */
+  width: 100%;
+}
+
+.formTitle {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0; /* Remove margin as it's now inline */
+  flex-shrink: 0; /* Prevent title from shrinking */
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.emailInput {
+  flex-grow: 1; /* Allow input to take remaining space in the row */
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #222; /* Retain dark background for input field */
+  color: #eee;
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(234, 83, 43, 0.5);
+}
+
+.signupButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.signupButton:hover {
+  background-color: #f06a45;
+  transform: translateY(-1px);
+}
+
+.trainersButton {
+  background-color: #2a7bb0;
+}
+
+.trainersButton:hover {
+  background-color: #3498db;
+}
+
+.message {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+.formDivider {
+  text-align: center;
+  font-weight: bold;
+  color: #a0a0a0;
+  margin: 0.4rem 0;
+}
+
+/* Highlight animation for input fields on Vision Carousel */
+@keyframes inputHighlightPulseVision {
+  0% {
+    box-shadow: 0 0 0 0px rgba(234, 83, 43, 0);
+  }
+  15% {
+    box-shadow: 
+      0 0 0 6px rgba(234, 83, 43, 0.7),
+      0 0 15px 10px rgba(255, 165, 0, 0.5);
+  }
+  45% {
+    box-shadow: 0 0 0 0px rgba(234, 83, 43, 0);
+  }
+  60% {
+    box-shadow: 
+      0 0 0 6px rgba(234, 83, 43, 0.7),
+      0 0 15px 10px rgba(255, 165, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(234, 83, 43, 0);
+  }
+}
+
+/* Apply the highlight animation */
+.emailInput.highlightInput {
+  animation: inputHighlightPulseVision 3s ease-out forwards;
+}
+
+
 /* --- FINAL MOBILE STYLES --- */
 @media (max-width: 768px) {
   .carouselContainer {
@@ -175,37 +311,41 @@
 
   .slide {
     position: relative;
-    height: 100%;
+    height: 100%; /* Keep 100% height for mobile slide */
     padding: 0 1.5rem;
     display: flex;
-    align-items: center;
-    text-align: left;
+    flex-direction: column; /* Allow content to stack */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    justify-content: flex-start; /* Align content to the top */
   }
   
   .textContainer {
     position: relative;
     z-index: 2;
     width: 100%;
-    height: 90%;
+    height: auto; /* Allow height to adjust to content */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: auto;
+    padding-top: 0.15rem;
   }
 
   .imageContainer {
-    position: absolute;
+    position: relative; /* Changed to relative for better mobile flow */
     z-index: 1;
-    width: 80%;
-    height: 80%;
-    top: 84%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 200px; /* Fixed height for image on mobile */
+    top: auto; /* Remove fixed top positioning */
+    left: auto; /* Remove fixed left positioning */
+    transform: none; /* Remove transform */
     opacity: 0.1;
     
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 1rem; /* Space below image */
   }
 
   .imageContainer img {
@@ -222,4 +362,18 @@
   .header { font-size: 1.8rem; }
   .text { font-size: 1rem; }
   .miniTitle { font-size: 0.8rem; }
+
+  /* Adjust form layout for mobile */
+  .formsContainer {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .formSection {
+    padding: 0; /* Removed padding for form sections on mobile */
+  }
+
+  .signupForm {
+    flex-direction: column; /* Ensure forms stack on mobile */
+  }
 }
