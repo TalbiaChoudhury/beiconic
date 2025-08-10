@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react'; // Ensure useRef and useEffect are imported
 import Image from 'next/image';
 import styles from './Hero.module.css';
 import hero from '../../../../public/assets/images/Trainers/Trainer_Images/Trainer_Hero.png';
@@ -10,6 +10,8 @@ const Hero = () => {
   const [loading, setLoading] = useState(false);
   // State for success or error messages
   const [message, setMessage] = useState('');
+  const emailInputRef = useRef(null); // IMPORTANT: Ref for the email input
+  const highlightTimeoutRef = useRef(null); // Ref to store the timeout ID for clearing
 
   // Function to handle the form submission
   const handleSubmit = async (event) => {
@@ -32,7 +34,7 @@ const Hero = () => {
 
       if (res.ok) {
         // Handle success
-        setMessage('Success! Thank you for subscribing.');
+        setMessage('Success! Thank you for applying.'); // Updated message
         setEmail(''); // Clear the input field
       } else {
         // Handle errors from the API
@@ -47,6 +49,44 @@ const Hero = () => {
     setLoading(false);
   };
 
+  // IMPORTANT: Effect to listen for custom highlight event
+  useEffect(() => {
+    const handleHighlightInput = () => {
+      console.log('Hero (Trainers): highlightHeroInput event received!'); // Debug log
+      if (emailInputRef.current) {
+        emailInputRef.current.focus(); // Focus the input field
+        emailInputRef.current.classList.add(styles.highlightInput); // Add highlight class
+
+        // Clear any existing timeout to prevent multiple highlights overlapping
+        if (highlightTimeoutRef.current) {
+          clearTimeout(highlightTimeoutRef.current);
+        }
+
+        // Remove highlight after a short delay
+        highlightTimeoutRef.current = setTimeout(() => {
+          if (emailInputRef.current) { // Ensure ref is still valid before removing class
+            emailInputRef.current.classList.remove(styles.highlightInput);
+          }
+          console.log('Hero (Trainers): Highlight removed.'); // Debug log
+        }, 2000); // Highlight for 2 seconds
+      } else {
+        console.log('Hero (Trainers): emailInputRef.current is null when event received.'); // Debug log
+      }
+    };
+
+    // Add event listener to the window
+    window.addEventListener('highlightHeroInput', handleHighlightInput);
+
+    // Cleanup: remove event listener and clear timeout when component unmounts
+    return () => {
+      window.removeEventListener('highlightHeroInput', handleHighlightInput);
+      if (highlightTimeoutRef.current) {
+        clearTimeout(highlightTimeoutRef.current);
+      }
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
+
+
   return (
     <div className={styles.heroContainer}>
       <div className={styles.leftColumn}>
@@ -60,7 +100,7 @@ const Hero = () => {
           Launch your own Icon, and reach people everywhere, all at once.
         </p>
         <p className={styles.subheadline}>
-          <span className={styles.bold}>Apply to join our roster of Founding Icons now!</span>
+          <span className={styles.bold}>Apply to join our roster of Founding Icons now!</span> {/* Updated text */}
         </p>
         <form className={styles.signupForm} onSubmit={handleSubmit}>
           <input
@@ -70,9 +110,10 @@ const Hero = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required // Make email input required
+            ref={emailInputRef} // IMPORTANT: Attach the ref to the input
           />
           <button type="submit" className={styles.signupButton} disabled={loading}>
-            {loading ? 'Signing Up...' : 'Sign Up'}
+            {loading ? 'Applying...' : 'Apply Now'} {/* Updated button text */}
           </button>
         </form>
         {/* Display success or error messages */}
@@ -96,4 +137,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

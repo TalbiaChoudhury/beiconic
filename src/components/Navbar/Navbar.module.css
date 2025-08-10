@@ -105,7 +105,7 @@
   color: var(--primary);
 }
 
-/* --- NEW: Sliding Underline Styles --- */
+/* --- Active Link Styles with Underline --- */
 .desktopLinks a.active {
   color: #ffffff; /* Change link color to white when active */
 }
@@ -167,14 +167,14 @@
 .button::before {
   content: '';
   position: absolute;
-  z-index: -1;
+  z-index: -1; /* Default: behind the button content */
   inset: 0;
   border-radius: inherit;
   padding: 1.5px;
   background: conic-gradient(
     from var(--gradient-angle),
     transparent 50%,
-    var(--primary),
+    var(--primary), /* Default orange glow */
     transparent
   );
   animation: rotate-border 4s linear infinite;
@@ -191,7 +191,7 @@
 .button {
   appearance: none;
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Ensure the button itself has a z-index */
   border-radius: 8px;
   height: 48px;
   padding: 0 24px;
@@ -212,11 +212,43 @@
 
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
-    background-color: var(--primary);
+    background-color: var(--primary); /* Default orange hover */
     color: var(--foreground);
   }
   
   .button:hover::before {
+    display: none;
+  }
+}
+
+/* NEW: Styles for the Trainers page button */
+/* Apply to .button when it also has .trainersButtonColor */
+.button.trainersButtonColor {
+  background-color: transparent; /* Changed to transparent */
+  color: white; /* White text for contrast */
+  z-index: 2; /* Make button content appear above the glow */
+}
+
+/* Target the ::before for glow when .button also has .trainersButtonColor */
+.button.trainersButtonColor::before {
+  background: conic-gradient(
+    from var(--gradient-angle),
+    transparent 50%,
+    #3f93cb, /* Blue glow for trainers button */
+    transparent
+  );
+  animation: rotate-border 4s linear infinite; /* Explicitly re-apply animation */
+  z-index: 1; /* Place this just below the button's content */
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* Target hover for trainers button when .button also has .trainersButtonColor */
+  .button.trainersButtonColor:hover {
+    background-color: #3f93cb; /* Blue hover background */
+    color: var(--foreground);
+  }
+  /* Ensure the ::before is hidden on hover for the trainers button too */
+  .button.trainersButtonColor:hover::before {
     display: none;
   }
 }

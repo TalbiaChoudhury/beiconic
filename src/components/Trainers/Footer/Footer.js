@@ -33,7 +33,7 @@ const Footer = () => {
 
       if (res.ok) {
         // Handle success
-        setMessage('Success! Thank you for subscribing.');
+        setMessage('Success! Thank you for applying.'); // Updated message
         setEmail(''); // Clear the input field
       } else {
         // Handle errors from the API
@@ -70,7 +70,7 @@ const Footer = () => {
             required // Make email input required
           />
           <button type="submit" className={styles.button} disabled={loading}>
-            {loading ? 'Signing Up...' : 'Sign Up'}
+            {loading ? 'Applying...' : 'Apply Now'} {/* Updated button text */}
           </button>
         </form>
 

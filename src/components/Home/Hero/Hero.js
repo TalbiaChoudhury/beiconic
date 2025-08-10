@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
-import hero from '../../../../public/assets/images/Home/Hero/Hero.png';
+import hero from '../../../../public/assets/images/Home/Hero/Hero.png'; // Assuming this is correct for the Home page Hero
 
 const Hero = () => {
-  // State for the email input
   const [email, setEmail] = useState('');
-  // State to handle loading status
   const [loading, setLoading] = useState(false);
-  // State for success or error messages
   const [message, setMessage] = useState('');
+  const emailInputRef = useRef(null);
+  const highlightTimeoutRef = useRef(null);
 
-  // Function to handle the form submission
   const handleSubmit = async (event) => {
-    // Prevent the default form behavior
     event.preventDefault();
     setLoading(true);
     setMessage('');
 
     try {
-      // Send a POST request to our new API route
-      const res = await fetch('/api/userSubscribe', {
+      const res = await fetch('/api/userSubscribe', { // Assuming this is the correct API route for the Home page
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,21 +27,50 @@ const Hero = () => {
       const data = await res.json();
 
       if (res.ok) {
-        // Handle success
         setMessage('Success! Thank you for subscribing.');
-        setEmail(''); // Clear the input field
+        setEmail('');
       } else {
-        // Handle errors from the API
         setMessage(data.error || 'An error occurred. Please try again.');
       }
     } catch (error) {
-      // Handle network errors
       setMessage('An error occurred. Please check your connection and try again.');
       console.error('Fetch error:', error);
     }
 
     setLoading(false);
   };
+
+  useEffect(() => {
+    const handleHighlightInput = () => {
+      console.log('Hero: highlightHeroInput event received!'); // Log when event is received
+      if (emailInputRef.current) {
+        emailInputRef.current.focus();
+        emailInputRef.current.classList.add(styles.highlightInput);
+
+        if (highlightTimeoutRef.current) {
+          clearTimeout(highlightTimeoutRef.current);
+        }
+
+        highlightTimeoutRef.current = setTimeout(() => {
+          if (emailInputRef.current) {
+            emailInputRef.current.classList.remove(styles.highlightInput);
+          }
+          console.log('Hero: Highlight removed.'); // Log when highlight is removed
+        }, 2000); // Highlight for 2 seconds
+      } else {
+        console.log('Hero: emailInputRef.current is null when event received.'); // Log if ref is null
+      }
+    };
+
+    window.addEventListener('highlightHeroInput', handleHighlightInput);
+
+    return () => {
+      window.removeEventListener('highlightHeroInput', handleHighlightInput);
+      if (highlightTimeoutRef.current) {
+        clearTimeout(highlightTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={styles.heroContainer}>
@@ -66,13 +91,13 @@ const Hero = () => {
             className={styles.emailInput}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required // Make email input required
+            required
+            ref={emailInputRef}
           />
           <button type="submit" className={styles.signupButton} disabled={loading}>
             {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
         </form>
-        {/* Display success or error messages */}
         {message && <p className={styles.message}>{message}</p>}
       </div>
       <div className={styles.rightColumn}>

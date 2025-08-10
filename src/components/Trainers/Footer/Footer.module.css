@@ -25,7 +25,7 @@
 .title {
   font-size: var(--subheader); /* Responsive font size */
   font-weight: 900;
-  color: var(--primary); /* Uses the primary color from your theme */
+  color: var(--primary); /* Uses the primary color from your theme (orange) */
   margin-bottom: 1rem;
 }
 
@@ -71,16 +71,16 @@
 }
 
 .input:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--primary); /* Retains original orange for focus outline */
   outline-offset: 2px;
-  border-color: var(--primary);
+  border-color: var(--primary); /* Retains original orange for focus border */
 }
 
 /* Sign up button styling - matched with Hero component */
 .button {
   border: none;
   border-radius: 15px;
-  background-color: var(--primary);
+  background-color: #3f93cb; /* Changed to darker blue */
   color: white;
   padding: 12px 24px;
   font-size: 1rem;
@@ -93,7 +93,7 @@
 .button:hover {
   transform: translateY(-2px);
   background-color: var(--foreground);
-  color: var(--primary);
+  color: #3f93cb; /* Changed to darker blue on hover */
 }
 
 /* --- Responsive Design --- */
@@ -104,5 +104,3 @@
     flex-direction: row;
   }
 }
-
-/* For small mobile screens, center the text and form */

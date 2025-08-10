@@ -31,7 +31,7 @@
 }
 
 .highlight {
-  color: var(--primary);
+  color: var(--primary); /* Reverted to original orange */
 }
 
 .subheadline {
@@ -41,8 +41,8 @@
 }
 
 .bold {
-    font-weight: 700;
-    color:  var(--primary);
+  font-weight: 700;
+  color: var(--primary); /* Reverted to original orange */
 }
 
 .signupForm {
@@ -72,18 +72,52 @@
   color: #333;
   width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.2s ease, outline 0.2s ease, box-shadow 0.2s ease; /* Ensure box-shadow is transitioned */
+}
+
+.emailInput::placeholder {
+  color: #555;
 }
 
 .emailInput:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid #3f93cb; /* Kept as dark blue */
   outline-offset: 2px;
-  border-color: var(--primary);
+  border-color: #3f93cb; /* Kept as dark blue */
 }
+
+/* NEW: Keyframes for the gradient highlight animation (blue version) */
+@keyframes inputHighlightPulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(63, 147, 203, 0); /* Start completely transparent */
+  }
+  10% { /* First pulse peak - slightly earlier for snappier start */
+    box-shadow: 
+      0 0 0 8px rgba(63, 147, 203, 0.8), /* Inner blue glow, more opaque */
+      0 0 20px 12px rgba(102, 204, 255, 0.6); /* Lighter blue, wider, more opaque glow */
+  }
+  40% { /* Slower fade out to transparent for first pulse */
+    box-shadow: 0 0 0 0px rgba(63, 147, 203, 0);
+  }
+  50% { /* Second pulse peak - slightly earlier for snappier start */
+    box-shadow: 
+      0 0 0 8px rgba(63, 147, 203, 0.8), /* Inner blue glow, more opaque */
+      0 0 20px 12px rgba(102, 204, 255, 0.6); /* Lighter blue, wider, more opaque glow */
+  }
+  100% { /* Very slow fade out to transparent for second pulse */
+    box-shadow: 0 0 0 0px rgba(63, 147, 203, 0); /* Fade out completely */
+  }
+}
+
+/* Style for the highlight effect */
+.emailInput.highlightInput {
+  animation: inputHighlightPulse 5s ease-out forwards; /* Apply the animation with longer duration */
+}
+
 
 .signupButton {
   border: none;
   border-radius: 15px;
-  background-color: var(--primary);
+  background-color: #3f93cb; /* Kept as dark blue */
   color: white;
   padding: 12px 24px; /* Reduced vertical padding */
   font-size: 1rem;
@@ -96,7 +130,7 @@
 .signupButton:hover {
   transform: translateY(-2px);
   background-color: var(--foreground);
-  color: var(--primary);
+  color: #3f93cb; /* Kept as dark blue */
 }
 
 

@@ -8,12 +8,12 @@
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
-  /* Add this line to push content below the navbar */
   padding-top: 100px; 
+  padding-bottom: 0px; 
   color: var(--foreground);
   gap: 3rem;
   text-align: left;
-  min-height: 100vh; /* This will center the content vertically */
+  min-height: 100vh;
 }
 
 .leftColumn {
@@ -41,7 +41,7 @@
 
 .bold {
     font-weight: 700;
-    color:  var(--primary);
+    color: var(--primary);
 }
 
 .signupForm {
@@ -55,7 +55,7 @@
 /* Form Styling */
 .heroform {
   display: flex;
-  flex-direction: column; /* Stacked on mobile */
+  flex-direction: column;
   gap: 16px;
   width: 100%;
   max-width: 550px;
@@ -65,12 +65,17 @@
   flex-grow: 1;
   border: 1px solid #ccc;
   border-radius: 20px;
-  padding: 12px; /* Reduced padding to make it shorter */
+  padding: 12px;
   font-size: 1rem;
   background-color: var(--foreground);
   color: #333;
   width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.2s ease, outline 0.2s ease, box-shadow 0.2s ease; /* Ensure box-shadow is transitioned */
+}
+
+.emailInput::placeholder {
+  color: #555;
 }
 
 .emailInput:focus {
@@ -79,17 +84,47 @@
   border-color: var(--primary);
 }
 
+/* NEW: Keyframes for the gradient highlight animation */
+@keyframes inputHighlightPulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0); /* Start completely transparent */
+  }
+  15% { /* First pulse peak */
+    box-shadow: 
+      0 0 0 6px var(--primary), /* Inner blue glow */
+      0 0 15px 10px #ed613a; /* Lighter blue, wider glow */
+  }
+  45% { /* Slower fade out to transparent for first pulse */
+    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0);
+  }
+  60% { /* Second pulse peak */
+    box-shadow: 
+      0 0 0 6px var(--primary), /* Inner blue glow for second pulse */
+      0 0 15px 10px #ed613a; /* Lighter blue, wider glow for second pulse */
+  }
+  100% { /* Slower fade out to transparent for second pulse */
+    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0); /* Fade out completely */
+  }
+}
+
+/* Style for the highlight effect */
+.emailInput.highlightInput {
+  /* Remove static box-shadow if it was here, as animation will control it */
+  animation: inputHighlightPulse 5s ease-out forwards; /* Apply the animation with longer duration */
+}
+
+
 .signupButton {
   border: none;
   border-radius: 15px;
   background-color: var(--primary);
   color: white;
-  padding: 12px 24px; /* Reduced vertical padding */
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
 }
 
 .signupButton:hover {
@@ -101,22 +136,19 @@
 
 .rightColumn {
   flex: 1;
-  /* Add this to ensure the column doesn't have a minimum width that prevents shrinking */
   min-width: 0;
 }
 
 .imageWrapper {
   position: relative;
-  /* Make the wrapper responsive */
   width: 100%;
-  max-width: 600px; /* You can keep your max-width */
-  margin: 0 auto; /* Center the image wrapper */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Add this new class */
 .phoneImage {
   width: 100%;
-  height: auto; /* This is crucial for maintaining aspect ratio */
+  height: auto;
 }
 
 /* --- Responsive Design --- */

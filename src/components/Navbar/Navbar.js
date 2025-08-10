@@ -5,7 +5,7 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import logoWithText from '../../../public/assets/images/LogoText.png';
 
@@ -32,6 +32,43 @@ const Navbar = () => {
       });
     }
   }, [pathname]);
+
+  // Determine button text and href based on the current path
+  const isTrainersPage = pathname === '/trainers';
+  const buttonText = isTrainersPage ? 'Apply Now' : 'Sign Up';
+
+  // Handle click for the "Sign Up" / "Apply Now" button
+  const handleSignUpClick = (e) => {
+    // This condition checks if we are on the Home page and it's 'Sign Up'
+    // OR if we are on the Trainers page and it's 'Apply Now'
+    if (
+      (pathname === '/' && buttonText === 'Sign Up') ||
+      (pathname === '/trainers' && buttonText === 'Apply Now')
+    ) {
+      if (e && e.preventDefault) {
+        e.preventDefault();
+      }
+      
+      // Scroll to the very top of the page smoothly
+      setTimeout(() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }, 0);
+
+      // Dispatch a custom event to tell the Hero component to highlight the input
+      setTimeout(() => {
+        console.log('Navbar: Dispatching highlightHeroInput event.'); // IMPORTANT: Check for this log
+        window.dispatchEvent(new Event('highlightHeroInput'));
+      }, 800);
+    }
+    closeMenu();
+  };
+
+  // Define common props for the button/link to reduce redundancy
+  const commonButtonProps = {
+    className: `${styles.button} ${isTrainersPage ? styles.trainersButtonColor : ''}`,
+    onClick: handleSignUpClick,
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -70,12 +107,32 @@ const Navbar = () => {
         
         {/* Part 3: Contact button for desktop (will be hidden on mobile) */}
         <div className={`${styles.navSection} ${styles.navRight}`}>
-            <Link href="/" className={styles.button}>Sign Up</Link>
+            {isTrainersPage ? (
+              // Render as a Link for the Trainers page
+              <Link href="/trainers" {...commonButtonProps}>
+                {buttonText}
+              </Link>
+            ) : (
+              // Render as a standard button for the Home page
+              <button type="button" {...commonButtonProps}>
+                {buttonText}
+              </button>
+            )}
         </div>
 
         {/* --- NEW: Wrapper for Mobile Controls --- */}
         <div className={styles.mobileControls}>
-          <Link href="/" className={styles.button}>Sign Up</Link>
+          {isTrainersPage ? (
+            // Render as a Link for the Trainers page
+            <Link href="/trainers" {...commonButtonProps}>
+              {buttonText}
+            </Link>
+          ) : (
+            // Render as a standard button for the Home page
+            <button type="button" {...commonButtonProps}>
+              {buttonText}
+            </button>
+          )}
           <div 
             className={styles.hamburger} 
             onClick={() => setMenuOpen(!menuOpen)}
