@@ -136,9 +136,9 @@ const ModularCards = () => {
       <p className={styles.introText}>
         We are recruiting just 50 people to form our Founding Icons - a cohort of trainers, athletes, and specialists that can contribute towards making this the most iconic fitness app in the world.
         <br /><br />
-        <strong>We're looking for a range of people and experiences - so there is no reason you can't join us</strong> and we invite everybody to apply now.
+        <strong>We&apos;re looking for a range of people and experiences - so there is no reason you can&apos;t join us</strong> and we invite everybody to apply now.
         <br /><br/>
-        As a Founding Icon, you'll get direct communication with the creators of Icon and early access to the platform, so you can influence how it evolves. You'll enjoy benefits for life, including:
+        As a Founding Icon, you&apos;ll get direct communication with the creators of Icon and early access to the platform, so you can influence how it evolves. You&apos;ll enjoy benefits for life, including:
       </p>
       <br></br>
       {/* --- End of New Content --- */}
