@@ -19,13 +19,26 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Email is required' }, { status: 400 });
   }
 
-  const params = {
+  const paramsForTrainerSub = {
     email: email,
-    groups: [process.env.MAILERLITE_GROUP_ID_TRAINERS], // Your Group ID
+    groups: [process.env.MAILERLITE_GROUP_ID_TRAINERS], // Your Trainer Group ID
   };
 
-  try {
-    const response = await mailerlite.subscribers.createOrUpdate(params);
+  const paramsForUserSub = {
+    email: email,
+    groups: [process.env.MAILERLITE_GROUP_ID_USERS], // Your User Group ID
+  };
+
+  try { // Adding to Trainer mailer list
+    const response = await mailerlite.subscribers.createOrUpdate(paramsForTrainerSub);
+    return NextResponse.json(response.data, { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: 'An error occurred while subscribing.' }, { status: 500 });
+  }
+
+  try { // Adding to User mailer list
+    const response = await mailerlite.subscribers.createOrUpdate(paramsForUserSub);
     return NextResponse.json(response.data, { status: 200 });
   } catch (error) {
     console.error(error);
