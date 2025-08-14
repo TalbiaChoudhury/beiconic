@@ -206,27 +206,26 @@
 
 /* Specific styling for the Trainer input */
 .trainerEmailInput {
-  border: 1px solid #64b5f6; /* Initial color for Trainer input */
+  border: 1px solid #3F93CB; /* Initial color for Trainer input */
 }
 
 .trainerEmailInput:focus {
   border-color: #42a5f5; /* Focus color for Trainer input */
 }
 
-/* Consolidated button styles */
+/* Consolidated button styles for a smaller, aesthetic look */
 .signupButton, .trainersButton {
-  padding: 0.5rem 1.5rem; /* Reduced vertical padding */
-  min-height: 35px; /* Reduced min-height */
-  font-size: 1rem;
-  font-weight: 700;
+  padding: 0.5rem 1.25rem; /* Reduced padding for a smaller size */
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 600; /* Medium font weight */
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px; /* Increased border-radius for a pill-like shape */
   cursor: pointer;
-  width: 100%;
-  max-width: 300px;
+  width: auto;
+  max-width: 200px;
   white-space: nowrap;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; /* Smooth transition for all properties */
 }
 
 /* Specific button colors and hover effects */
@@ -237,6 +236,8 @@
 .signupButton:hover {
   background-color: #ffffff;
   color: var(--primary);
+  transform: scale(1.05); /* Slight grow effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
 
 .trainersButton {
@@ -246,6 +247,8 @@
 .trainersButton:hover {
   background-color: #ffffff;
   color: #3f93cb;
+  transform: scale(1.05); /* Slight grow effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
 
 .message {

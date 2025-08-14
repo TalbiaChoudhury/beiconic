@@ -199,7 +199,7 @@ const ModularCards = () => {
       </div>
       {/* --- New Bottom Text --- */}
       <p className={styles.footerText}>
-        <span className={styles.highlight}>Spaces are limited - </span> apply now to secure a spot on the waiting list!
+        <span className={styles.highlight}>Spaces are limited - </span> Apply now to secure a spot on the waiting list!
       </p>
     </div>
   );

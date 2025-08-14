@@ -11,7 +11,7 @@
   font-size: var(--header);
   font-weight: 900;
   margin-bottom: 1rem;
-  color: var(--primary);
+  color: var(--trainerprimary);
 }
 
 .subHeader {
@@ -68,7 +68,7 @@
 .activeCard {
   transform: scale(1);
   opacity: 1;
-  border-color: var(--primary);
+  border-color: var(--trainerprimary);
 }
 
 .cardImagePlaceholder {
@@ -164,7 +164,7 @@
 
 .activeIndicator {
   background-color: transparent;
-  border-color: var(--primary);
+  border-color: var(--trainerprimary);
 }
 
 .footerText {
@@ -174,7 +174,7 @@
 
 .highlight {
   font-weight: 700;
-  color: var(--primary);
+  color: var(--trainerprimary);
 }
 
 @media (max-width: 768px) {

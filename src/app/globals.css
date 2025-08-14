@@ -2,6 +2,7 @@
   --background: #0E1315;
   --foreground: #EAEAEA;
   --primary: #ea532b;
+  --trainerprimary: #3F93CB;
   --header: clamp(3rem, 2.5vw, 3rem);
   --subheader: clamp(1.5rem, 2vw, 2rem);
   --text: clamp(1rem, 1.5vw, 1.125rem);
