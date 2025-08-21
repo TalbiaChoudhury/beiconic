@@ -33,8 +33,8 @@ const carouselData = [
     {
     id: 5,
     image: '/assets/images/Trainers/Carousel/Carousel5.png',
-    title: 'Step 5 - You Stay in Control',
-    description: 'We don’t believe in replacing humans with artificial intelligence. You can review, guide and moderate your Icon’s behaviour anytime, making sure it evolves with you and stays try to your philosophy.',
+    title: 'Step 5 - Refine and Perfect',
+    description: 'Your Icon evolves with you. Regular refinement tasks keep it accurate, aligned with your expertise, and consistent with your unique coaching style — ensuring your clients always experience the real you.',
   },
 ];
 
