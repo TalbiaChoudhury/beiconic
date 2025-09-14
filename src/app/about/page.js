@@ -88,7 +88,7 @@ export default function AboutPage() {
               }}
             >
               <Image
-                src="/assets/images/team/mish.jpg"
+                src="/assets/images/team/mish.JPG"
                 alt="Mish Choudhury"
                 width={84}
                 height={84}
@@ -137,7 +137,7 @@ export default function AboutPage() {
               }}
             >
               <Image
-                src="/assets/images/team/ephraim.jpg"
+                src="/assets/images/team/ephraim.JPG"
                 alt="Ephraim Lisk"
                 width={84}
                 height={84}
@@ -185,7 +185,7 @@ export default function AboutPage() {
               }}
             >
               <Image
-                src="/assets/images/team/taseen.jpg"
+                src="/assets/images/team/taseen.JPG"
                 alt="Taseen Choudhury"
                 width={84}
                 height={84}
