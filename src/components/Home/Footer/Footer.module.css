@@ -49,17 +49,19 @@
   border-radius: 15px;
   background-color: var(--primary);
   color: white;
-  padding: 16px 32px;
-  font-size: 1.1rem;
+  padding: 12px 24px;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
+  align-self: flex-start;
 }
 
 .button:hover {
   transform: translateY(-2px);
-  background-color: #d44c24;
+  background-color: var(--foreground);
+  color: #d44c24; /* Kept as dark blue */
 }
 
 /* --- Responsive Design --- */
