@@ -95,13 +95,14 @@
 
 @media (max-width: 991px) {
   .leftColumn {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* instead of center */
+    text-align: left;       /* instead of center */
   }
   .signupButton {
-    align-self: center;
+    align-self: flex-start; /* instead of center */
   }
 }
+
 
 /* Styles for the form popup */
 .overlay {
