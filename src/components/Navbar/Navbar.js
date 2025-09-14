@@ -14,7 +14,7 @@ import TrainerEmbeddedForm from '../Trainers/TrainerEmbeddedForm/TrainerEmbedded
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Trainers', href: '/trainers' },
-  { name: 'Vision', href: '/vision' },
+  { name: 'About Us', href: '/about' },
 ];
 
 const Navbar = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
     
     if (pathname === '/trainers') {
       setIsTrainerFormVisible(true);
- } else if (pathname === '/vision') {
+ } else if (pathname === '/about') {
    // Open the same user form used on Home
    setIsUserFormVisible(true)
     } else {
