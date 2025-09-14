@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
-import hero from '../../../../public/assets/images/Home/Hero/Hero.png'; // Assuming this is correct for the Home page Hero
-import UserEmbeddedForm from '../UserEmbeddedForm/UserEmbeddedForm';
+import hero from '../../../../public/assets/images/Trainers/Trainer_Images/Trainer_Hero.png';
+import TrainerEmbeddedForm from '../TrainerEmbeddedForm/TrainerEmbeddedForm';
 
 const Hero = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -12,21 +12,22 @@ const Hero = () => {
       <div className={styles.heroContainer}>
         <div className={styles.leftColumn}>
           <h1 className={styles.headline}>
-            YOU DON’T NEED MORE WILLPOWER. <br />YOU NEED AN <span className={styles.highlight}>ICON.</span>
+            COACH <span className={styles.highlight}>MORE. </span> EARN <span className={styles.highlight}>MORE. </span> STRESS <span className={styles.highlight}>LESS. </span>
           </h1>
           <p className={styles.subheadline}>
-            Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span>
+            Icon is building a new kind of fitness platform - with digital trainers, designed by <span className={styles.bold}>real athletes</span> like you.
             <br />
             <br />
-            Your Icon tracks it all - powered by real coaches, available anytime.
+            Launch your own Icon, and reach people everywhere, all at once.
           </p>
-          <button
-            type="button"
-            className={styles.signupButton}
-            onClick={() => setIsFormVisible(true)}
-          >
-            Sign Up
-          </button>
+          <p className={styles.subheadline}>
+            <span className={styles.bold}>Apply to join our roster of Founding Icons now!</span>
+          </p>
+          <div className={styles.signupForm}>
+            <button type="button" className={styles.signupButton} onClick={() => setIsFormVisible(true)}>
+              Apply Now
+            </button>
+          </div>
         </div>
         <div className={styles.rightColumn}>
           <div className={styles.imageWrapper}>
@@ -49,7 +50,7 @@ const Hero = () => {
             <button className={styles.closeButton} onClick={() => setIsFormVisible(false)}>
               &times;
             </button>
-            <UserEmbeddedForm />
+            <TrainerEmbeddedForm />
           </div>
         </div>
       )}
