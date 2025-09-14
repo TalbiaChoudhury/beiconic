@@ -8,6 +8,8 @@ import Image from 'next/image';
 import React, { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import logoWithText from '../../../public/assets/images/LogoText.png';
+import UserEmbeddedForm from '../Home/UserEmbeddedForm/UserEmbeddedForm';
+import TrainerEmbeddedForm from '../Trainers/TrainerEmbeddedForm/TrainerEmbeddedForm';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -20,6 +22,10 @@ const Navbar = () => {
   const pathname = usePathname();
   const [underlineStyle, setUnderlineStyle] = useState({});
   const navItemsRef = useRef({});
+
+  // State for form visibility
+  const [isUserFormVisible, setIsUserFormVisible] = useState(false);
+  const [isTrainerFormVisible, setIsTrainerFormVisible] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -38,126 +44,128 @@ const Navbar = () => {
   const buttonText = isTrainersPage ? 'Apply Now' : 'Sign Up';
 
   // Handle click for the "Sign Up" / "Apply Now" button
-  const handleSignUpClick = (e) => {
-    // Prevent default behavior if on the current page
-    if (e && e.preventDefault) {
-      e.preventDefault();
-    }
+  const handleButtonClick = (e) => {
+    e.preventDefault();
     
-    // Check if we are on the Vision page
-    if (pathname === '/vision') {
-        // Dispatch a custom event to tell the carousel to go to slide 10
+    if (pathname === '/trainers') {
+      setIsTrainerFormVisible(true);
+    } else if (pathname === '/vision') {
         window.dispatchEvent(new Event('showCarouselSlide10'));
     } else {
-        // Existing logic for other pages
-        setTimeout(() => {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }, 0);
-
-        setTimeout(() => {
-          window.dispatchEvent(new Event('highlightHeroInput'));
-        }, 800);
+        // Default to user form for home page or others
+        setIsUserFormVisible(true);
     }
     closeMenu();
   };
 
-  // Define common props for the button/link to reduce redundancy
+  // Define common props for the button to reduce redundancy
   const commonButtonProps = {
     className: `${styles.button} ${isTrainersPage ? styles.trainersButtonColor : ''}`,
-    onClick: handleSignUpClick,
+    onClick: handleButtonClick,
+    type: "button",
   };
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.container}>
-        {/* Part 1: Logo */}
-        <div className={styles.navSection}>
-          <Link href="/" className={styles.logo}>
-            <Image
-              src={logoWithText}
-              alt="Logo"
-              width={100}
-              height={50}
-            />
-          </Link>
-        </div>
+    <>
+      <nav className={styles.navbar}>
+        <div className={styles.container}>
+          {/* Part 1: Logo */}
+          <div className={styles.navSection}>
+            <Link href="/" className={styles.logo}>
+              <Image
+                src={logoWithText}
+                alt="Logo"
+                width={100}
+                height={50}
+              />
+            </Link>
+          </div>
 
-        {/* Part 2: Centered links for desktop */}
-        <div className={`${styles.navSection} ${styles.navCenter}`}>
-          <ul className={styles.desktopLinks}>
+          {/* Part 2: Centered links for desktop */}
+          <div className={`${styles.navSection} ${styles.navCenter}`}>
+            <ul className={styles.desktopLinks}>
+              {navLinks.map(link => (
+                <li 
+                  key={link.name}
+                  ref={el => (navItemsRef.current[link.href] = el)}
+                >
+                  <Link 
+                    href={link.href} 
+                    className={pathname === link.href ? styles.active : ''}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+              <div className={styles.underline} style={underlineStyle} />
+            </ul>
+          </div>
+          
+          {/* Part 3: Contact button for desktop (will be hidden on mobile) */}
+          <div className={`${styles.navSection} ${styles.navRight}`}>
+            <button {...commonButtonProps}>
+              {buttonText}
+            </button>
+          </div>
+
+          {/* --- NEW: Wrapper for Mobile Controls --- */}
+          <div className={styles.mobileControls}>
+            <button {...commonButtonProps}>
+              {buttonText}
+            </button>
+            <div 
+              className={styles.hamburger} 
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <div className={styles.bar}></div>
+              <div className={styles.bar}></div>
+              <div className={styles.bar}></div>
+            </div>
+          </div>
+
+          {/* This list now serves as the mobile menu overlay */}
+          <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
             {navLinks.map(link => (
-              <li 
-                key={link.name}
-                ref={el => (navItemsRef.current[link.href] = el)}
-              >
+              <li key={link.name}>
                 <Link 
                   href={link.href} 
-                  className={pathname === link.href ? styles.active : ''}
+                  onClick={closeMenu} 
+                  className={pathname === link.href ? styles.activeMobileLink : ''}
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
-            <div className={styles.underline} style={underlineStyle} />
           </ul>
         </div>
-        
-        {/* Part 3: Contact button for desktop (will be hidden on mobile) */}
-        <div className={`${styles.navSection} ${styles.navRight}`}>
-            {isTrainersPage ? (
-              // Render as a Link for the Trainers page
-              <Link href="/trainers" {...commonButtonProps}>
-                {buttonText}
-              </Link>
-            ) : (
-              // Render as a standard button for the Home page
-              <button type="button" {...commonButtonProps}>
-                {buttonText}
-              </button>
-            )}
-        </div>
+      </nav>
 
-        {/* --- NEW: Wrapper for Mobile Controls --- */}
-        <div className={styles.mobileControls}>
-          {isTrainersPage ? (
-            // Render as a Link for the Trainers page
-            <Link href="/trainers" {...commonButtonProps}>
-              {buttonText}
-            </Link>
-          ) : (
-            // Render as a standard button for the Home page
-            <button type="button" {...commonButtonProps}>
-              {buttonText}
+      {/* User Form Modal */}
+      {isUserFormVisible && (
+        <div className={styles.overlay} onClick={() => setIsUserFormVisible(false)}>
+          <div className={styles.formPopup} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={() => setIsUserFormVisible(false)}>
+              &times;
             </button>
-          )}
-          <div 
-            className={styles.hamburger} 
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <div className={styles.bar}></div>
-            <div className={styles.bar}></div>
-            <div className={styles.bar}></div>
+            <UserEmbeddedForm />
           </div>
         </div>
+      )}
 
-        {/* This list now serves as the mobile menu overlay */}
-        <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
-          {navLinks.map(link => (
-            <li key={link.name}>
-              <Link 
-                href={link.href} 
-                onClick={closeMenu} 
-                className={pathname === link.href ? styles.activeMobileLink : ''}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
+      {/* Trainer Form Modal */}
+      {isTrainerFormVisible && (
+        <div className={styles.overlay} onClick={() => setIsTrainerFormVisible(false)}>
+          <div className={styles.formPopup} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={() => setIsTrainerFormVisible(false)}>
+              &times;
+            </button>
+            <TrainerEmbeddedForm />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
 export default Navbar;
+

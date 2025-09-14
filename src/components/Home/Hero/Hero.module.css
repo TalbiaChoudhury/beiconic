@@ -44,95 +44,24 @@
     color: var(--primary);
 }
 
-.signupForm {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 5500px;
-  gap: 1rem;
-}
-
-/* Form Styling */
-.heroform {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  max-width: 550px;
-}
-
-.emailInput {
-  flex-grow: 1;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 12px;
-  font-size: 1rem;
-  background-color: var(--foreground);
-  color: #333;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease, outline 0.2s ease, box-shadow 0.2s ease; /* Ensure box-shadow is transitioned */
-}
-
-.emailInput::placeholder {
-  color: #555;
-}
-
-.emailInput:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-  border-color: var(--primary);
-}
-
-/* NEW: Keyframes for the gradient highlight animation */
-@keyframes inputHighlightPulse {
-  0% {
-    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0); /* Start completely transparent */
-  }
-  15% { /* First pulse peak */
-    box-shadow: 
-      0 0 0 6px var(--primary), /* Inner blue glow */
-      0 0 15px 10px #ed613a; /* Lighter blue, wider glow */
-  }
-  45% { /* Slower fade out to transparent for first pulse */
-    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0);
-  }
-  60% { /* Second pulse peak */
-    box-shadow: 
-      0 0 0 6px var(--primary), /* Inner blue glow for second pulse */
-      0 0 15px 10px #ed613a; /* Lighter blue, wider glow for second pulse */
-  }
-  100% { /* Slower fade out to transparent for second pulse */
-    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0); /* Fade out completely */
-  }
-}
-
-/* Style for the highlight effect */
-.emailInput.highlightInput {
-  /* Remove static box-shadow if it was here, as animation will control it */
-  animation: inputHighlightPulse 5s ease-out forwards; /* Apply the animation with longer duration */
-}
-
-
 .signupButton {
   border: none;
   border-radius: 15px;
   background-color: var(--primary);
   color: white;
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 16px 32px;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   white-space: nowrap;
+  align-self: flex-start;
 }
 
 .signupButton:hover {
   transform: translateY(-2px);
-  background-color: var(--foreground);
-  color: var(--primary);
+  background-color: #d44c24;
 }
-
 
 .rightColumn {
   flex: 1;
@@ -152,13 +81,6 @@
 }
 
 /* --- Responsive Design --- */
-@media (min-width: 768px) {
-  .signupForm {
-    flex-direction: row;
-  }
-}
-
-
 @media (min-width: 992px) {
   .heroContainer {
     flex-direction: row;
@@ -170,3 +92,52 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 991px) {
+  .leftColumn {
+    align-items: center;
+    text-align: center;
+  }
+  .signupButton {
+    align-self: center;
+  }
+}
+
+/* Styles for the form popup */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.formPopup {
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: white;
+  border: 2px solid #2a2a2a;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #2a2a2a;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+

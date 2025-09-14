@@ -46,34 +46,8 @@
 /* Form container styling, adapted from Hero.module.css for consistency */
 .form {
   display: flex;
-  flex-direction: column; /* Stacks form elements on mobile */
-  gap: 1rem;
   width: 100%;
   max-width: 550px;
-}
-
-/* Email input field styling - matched with Hero component */
-.input {
-  flex-grow: 1;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  background-color: var(--foreground);
-  color: #333;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease, outline 0.2s ease;
-}
-
-.input::placeholder {
-  color: #555;
-}
-
-.input:focus {
-  outline: 2px solid var(--trainerprimary); /* Retains original orange for focus outline */
-  outline-offset: 2px;
-  border-color: var(--trainerprimary); /* Retains original orange for focus border */
 }
 
 /* Sign up button styling - matched with Hero component */
@@ -96,6 +70,46 @@
   color: #3F93CB; /* Changed to darker blue on hover */
 }
 
+/* Styles for the form popup */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.formPopup {
+  position: relative;
+  z-index: 2001;
+}
+
+.closeButton {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: white;
+  border: 2px solid #2a2a2a;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #2a2a2a;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  z-index: 2002;
+}
+
 /* --- Responsive Design --- */
 
 /* For tablets and larger screens, align form elements in a row */
@@ -104,3 +118,4 @@
     flex-direction: row;
   }
 }
+

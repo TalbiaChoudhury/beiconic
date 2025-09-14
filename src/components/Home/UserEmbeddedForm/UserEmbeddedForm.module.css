@@ -1,0 +1,99 @@
+/* UserEmbeddedForm.module.css */
+.formContainer {
+  background-color: #2a2a2a;
+  padding: 2.5rem;
+  border-radius: 16px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input,
+.select {
+  background-color: white;
+  color: black;
+  border: 1px solid #4a4a4a;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: #555;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem; /* Make space for the arrow */
+}
+
+.button {
+  background-color: #ed613a; /* Original orange color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #d4522d; /* Darker orange for hover */
+}
+
+.message {
+  color: #ed613a;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 500px) {
+  .formContainer {
+    width: 90vw;
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+}
+
