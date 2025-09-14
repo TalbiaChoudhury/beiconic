@@ -8,13 +8,12 @@
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
-  /* Add this line to push content below the navbar */
-  padding-top: 100px;
+  padding-top: 100px; 
   padding-bottom: 0px; 
   color: var(--foreground);
   gap: 3rem;
   text-align: left;
-  min-height: 100vh; /* This will center the content vertically */
+  min-height: 100vh;
 }
 
 .leftColumn {
@@ -31,7 +30,7 @@
 }
 
 .highlight {
-  color: var(--trainerprimary); /* Reverted to original orange */
+  color: var(--primary);
 }
 
 .subheadline {
@@ -41,55 +40,70 @@
 }
 
 .bold {
-  font-weight: 700;
-  color: var(--trainerprimary); /* Reverted to original orange */
-}
-
-.signupForm {
-  display: flex;
-  width: 100%;
-  margin-top: 1rem;
+    font-weight: 700;
+    color: var(--primary);
 }
 
 .signupButton {
   border: none;
   border-radius: 15px;
-  background-color: #3f93cb; /* Kept as dark blue */
+  background-color: var(--primary);
   color: white;
-  padding: 12px 24px; /* Reduced vertical padding */
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
+  align-self: flex-start;
 }
 
 .signupButton:hover {
   transform: translateY(-2px);
   background-color: var(--foreground);
-  color: #3f93cb; /* Kept as dark blue */
+  color: #d44c24; /* Kept as dark blue */
 }
-
 
 .rightColumn {
   flex: 1;
-  /* Add this to ensure the column doesn't have a minimum width that prevents shrinking */
   min-width: 0;
 }
 
 .imageWrapper {
   position: relative;
-  /* Make the wrapper responsive */
   width: 100%;
-  max-width: 600px; /* You can keep your max-width */
-  margin: 0 auto; /* Center the image wrapper */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Add this new class */
 .phoneImage {
   width: 100%;
-  height: auto; /* This is crucial for maintaining aspect ratio */
+  height: auto;
 }
+
+/* --- Responsive Design --- */
+@media (min-width: 992px) {
+  .heroContainer {
+    flex-direction: row;
+    text-align: left;
+    gap: 4rem;
+  }
+
+  .leftColumn {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 991px) {
+  .leftColumn {
+    align-items: flex-start; /* instead of center */
+    text-align: left;       /* instead of center */
+  }
+  .signupButton {
+    align-self: flex-start; /* instead of center */
+  }
+}
+
 
 /* Styles for the form popup */
 .overlay {
@@ -108,7 +122,6 @@
 
 .formPopup {
   position: relative;
-  z-index: 2001;
 }
 
 .closeButton {
@@ -128,19 +141,5 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
-  z-index: 2002;
-}
-
-/* --- Responsive Design --- */
-@media (min-width: 992px) {
-  .heroContainer {
-    flex-direction: row;
-    text-align: left;
-    gap: 4rem;
-  }
-
-  .leftColumn {
-    align-items: flex-start;
-  }
 }
 
