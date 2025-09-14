@@ -49,8 +49,9 @@ const Navbar = () => {
     
     if (pathname === '/trainers') {
       setIsTrainerFormVisible(true);
-    } else if (pathname === '/vision') {
-        window.dispatchEvent(new Event('showCarouselSlide10'));
+ } else if (pathname === '/vision') {
+   // Open the same user form used on Home
+   setIsUserFormVisible(true)
     } else {
         // Default to user form for home page or others
         setIsUserFormVisible(true);
