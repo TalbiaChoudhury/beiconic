@@ -12,7 +12,7 @@ const Hero = () => {
       <div className={styles.heroContainer}>
         <div className={styles.leftColumn}>
           <h1 className={styles.headline}>
-            Coach <span className={styles.highlight}>More. </span> Earn <span className={styles.highlight}>More. </span> Stress <span className={styles.highlight}>Less. </span>
+            COACH <span className={styles.highlight}>MORE. </span> EARN <span className={styles.highlight}>MORE. </span> STRESS <span className={styles.highlight}>LESS. </span>
           </h1>
           <p className={styles.subheadline}>
             Icon is building a new kind of fitness platform - with digital trainers, designed by <span className={styles.bold}>real athletes</span> like you.
