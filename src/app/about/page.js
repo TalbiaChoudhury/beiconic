@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -46,7 +47,7 @@ export default function AboutPage() {
       <section id="team" style={{ marginBottom: "3rem" }}>
         <h1
           style={{
-            fontSize: "1.6rem",
+            fontSize: "2rem",
             marginBottom: "0.75rem",
             color: "var(--primary)",
           }}
@@ -64,61 +65,145 @@ export default function AboutPage() {
           {/* Mish */}
           <article
             style={{
-              background: "#1b1b1b",
+              background: "#1b1e1fff",
               border: "1px solid #333",
               borderRadius: 12,
               padding: "1rem",
+              display: "flex",
+              alignItems: "center", // <-- changed from flex-start
+              gap: "1rem",
             }}
           >
-            <h3 style={{ margin: 0, fontSize: "1.1rem" }}>
-              Mish Choudhury — Chief Vision Officer
-            </h3>
-            <p style={{ margin: "0.5rem 0 0", lineHeight: 1.6 }}>
-              Entrepreneur and wellbeing specialist with 11+ years across
-              coaching, product, and systems. Mish leads product vision and
-              strategy for Icon — blending human-centred design with scalable
-              AI so real coaches can support more people without losing their
-              voice.
-            </p>
+            {/* Avatar */}
+            <figure
+              style={{
+                flex: "0 0 auto",
+                width: 125,
+                height: 125,
+                borderRadius: "9999px",
+                overflow: "hidden",
+                border: "1px solid #333",
+                background: "#222",
+                margin: 0,
+              }}
+            >
+              <Image
+                src="/assets/images/team/mish.jpg"
+                alt="Mish Choudhury"
+                width={84}
+                height={84}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </figure>
+
+            {/* Text */}
+            <div>
+              <h3 style={{ margin: 0, fontSize: "1.1rem" }}>
+                Mish Choudhury — Chief Vision Officer
+              </h3>
+              <p style={{ margin: "0.5rem 0 0", lineHeight: 1.6 }}>
+                Entrepreneur and wellbeing specialist with 11+ years across
+                coaching, product, and systems. Mish leads product vision and
+                strategy for Icon — blending human-centred design with scalable
+                AI so real coaches can support more people without losing their
+                voice.
+              </p>
+            </div>
           </article>
 
           {/* Ephraim */}
           <article
             style={{
-              background: "#1b1b1b",
+              background: "#1b1e1fff",
               border: "1px solid #333",
               borderRadius: 12,
               padding: "1rem",
+              display: "flex",
+              alignItems: "center", // <-- changed from flex-start
+              gap: "1rem",
             }}
           >
-            <h3 style={{ margin: 0, fontSize: "1.1rem" }}>
-              Ephraim Lisk — Chief Marketing Officer
-            </h3>
-            <p style={{ margin: "0.5rem 0 0", lineHeight: 1.6 }}>
-              Growth leader and creator with a multi-million-strong audience.
-              Ephraim specialises in authentic storytelling and short-form
-              content that converts attention into community — leading Icon’s
-              brand, social, and go-to-market engine.
-            </p>
+            {/* Avatar */}
+            <figure
+              style={{
+                flex: "0 0 auto",
+                width: 125,
+                height: 125,
+                borderRadius: "9999px",
+                overflow: "hidden",
+                border: "1px solid #333",
+                background: "#222",
+                margin: 0,
+              }}
+            >
+              <Image
+                src="/assets/images/team/ephraim.jpg"
+                alt="Ephraim Lisk"
+                width={84}
+                height={84}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </figure>
+
+            {/* Text */}
+            <div>
+              <h3 style={{ margin: 0, fontSize: "1.1rem" }}>
+                Ephraim Lisk — Chief Marketing Officer
+              </h3>
+              <p style={{ margin: "0.5rem 0 0", lineHeight: 1.6 }}>
+                Growth leader and creator with a multi-million-strong audience.
+                Ephraim specialises in authentic storytelling and short-form
+                content that converts attention into community — leading Icon’s
+                brand, social, and go-to-market engine.
+              </p>
+            </div>
           </article>
 
           {/* Taseen */}
           <article
             style={{
-              background: "#1b1b1b",
+              background: "#1b1e1fff",
               border: "1px solid #333",
               borderRadius: 12,
               padding: "1rem",
+              display: "flex",
+              alignItems: "center", // <-- changed from flex-start
+              gap: "1rem",
             }}
           >
-            <h3 style={{ margin: 0, fontSize: "1.1rem" }}>
-              Taseen Choudhury — Chief Operating Officer
-            </h3>
-            <p style={{ margin: "0.5rem 0 0", lineHeight: 1.6 }}>
-              Operations and delivery. Taseen builds the systems that make Icon
-              reliable at scale — from trainer onboarding and support to
-              day-to-day ops — so users and coaches get a seamless experience.
-            </p>
+            {/* Avatar */}
+            <figure
+              style={{
+                flex: "0 0 auto",
+                width: 125,
+                height: 125,
+                borderRadius: "9999px",
+                overflow: "hidden",
+                border: "1px solid #333",
+                background: "#222",
+                margin: 0,
+              }}
+            >
+              <Image
+                src="/assets/images/team/taseen.jpg"
+                alt="Taseen Choudhury"
+                width={84}
+                height={84}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </figure>
+
+            {/* Text */}
+            <div>
+              <h3 style={{ margin: 0, fontSize: "1.1rem" }}>
+                Taseen Choudhury — Chief Operating Officer
+              </h3>
+              <p style={{ margin: "0.5rem 0 0", lineHeight: 1.6 }}>
+                Operations and delivery. Taseen builds the systems that make Icon
+                reliable at scale — from trainer onboarding and support to
+                day-to-day ops — so users and coaches get a seamless experience.
+              </p>
+            </div>
           </article>
         </div>
       </section>
@@ -127,7 +212,7 @@ export default function AboutPage() {
       <section id="contact">
         <h1
           style={{
-            fontSize: "1.6rem",
+            fontSize: "2rem",
             marginBottom: "0.75rem",
             color: "var(--primary)",
           }}
@@ -141,7 +226,7 @@ export default function AboutPage() {
 
         <div
           style={{
-            background: "#1b1b1b",
+            background: "#1b1e1fff",
             border: "1px solid #333",
             borderRadius: 12,
             padding: "1rem",
@@ -232,7 +317,9 @@ function ContactForm() {
       />
 
       <div>
-        <label style={{ display: "block", fontSize: 12, marginBottom: 6 }}>Name</label>
+        <label style={{ display: "block", fontSize: 12, marginBottom: 6, fontWeight: 700 }}>
+          Name
+        </label>
         <input
           type="text"
           name="name"
@@ -245,7 +332,9 @@ function ContactForm() {
       </div>
 
       <div>
-        <label style={{ display: "block", fontSize: 12, marginBottom: 6 }}>Email</label>
+        <label style={{ display: "block", fontSize: 12, marginBottom: 6, fontWeight: 700 }}>
+          Email
+        </label>
         <input
           type="email"
           name="email"
@@ -258,7 +347,9 @@ function ContactForm() {
       </div>
 
       <div>
-        <label style={{ display: "block", fontSize: 12, marginBottom: 6 }}>Phone</label>
+        <label style={{ display: "block", fontSize: 12, marginBottom: 6, fontWeight: 700 }}>
+          Phone
+        </label>
         <input
           type="tel"
           name="phone"
@@ -270,7 +361,7 @@ function ContactForm() {
       </div>
 
       <div>
-        <label style={{ display: "block", fontSize: 12, marginBottom: 6 }}>
+        <label style={{ display: "block", fontSize: 12, marginBottom: 6, fontWeight: 700 }}>
           Reason for contacting us
         </label>
         <textarea
