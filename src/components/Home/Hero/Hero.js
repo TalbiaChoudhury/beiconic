@@ -12,7 +12,7 @@ const Hero = () => {
       <div className={styles.heroContainer}>
         <div className={styles.leftColumn}>
           <h1 className={styles.headline}>
-            You don’t need more willpower. <br />You need an <span className={styles.highlight}>Icon.</span>
+            YOU DON’T NEED MORE WILLPOWER. <br />YOU NEED AN <span className={styles.highlight}>ICON.</span>
           </h1>
           <p className={styles.subheadline}>
             Eat better. Recover Faster. <span className={styles.bold}>Train Smarter.</span>
