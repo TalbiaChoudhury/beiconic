@@ -11,7 +11,7 @@ import Footer from '../components/Home/Footer/Footer';
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Icon | Home";
+    document.title = "Iconn | Home";
   }, []);
 
   return (
